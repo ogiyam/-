@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  large_categories_id: 1
+  problem: MyString
+  solution: MyString
+
+two:
+  large_categories_id: 1
+  problem: MyString
+  solution: MyString

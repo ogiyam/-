@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  middle_categories_id: 1
+  title: MyString
+  note: 
+  : 
+
+two:
+  middle_categories_id: 1
+  title: MyString
+  note: 
+  : 
