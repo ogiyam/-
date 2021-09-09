@@ -1,5 +1,13 @@
 class ApplicationController < ActionController::Base
-   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  # deviseコントローラーにストロングパラメータを追加する
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def after_sign_in_path_for(resource)
+    binding.pry
+    large_categories_path(resource)
+  end
+
 
   protected
 

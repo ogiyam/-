@@ -1,0 +1,43 @@
+<h1>LargeCategory#index</h1>
+
+<div class="container-fluid">
+	  <div class="row">
+		  <div class="col-md-3">
+
+				<%= form_with model: @large_category, local:true do |f| %>
+				
+				 <div class="text_field">
+						<%= f.label :genre %><br>
+						<%= f.text_field :genre %><br>
+				 </div>
+				
+					<%= f.submit '新規作成', class: "btn btn-primary col-xs-12" %>
+				 <% end %>
+				
+				 <div class="col-md-8 offset-md-1">
+							<h1>Genres</h1>
+								 <table class="genre">
+									 <thead>
+											 <tr>
+												 <th>genre</th>
+											 </tr>
+									 </thead>
+									 <tbody>
+										<% @large_categories.each do |large_category| %>
+										 <tr>
+											<td><%= link_to large_category.genre, large_category_middle_categories_path(large_category) %></td>
+										 
+										  <% if  large_category.user == current_user %>
+				               <div class="comment-delete">
+				               <td><%= link_to "Destroy", large_categories_path(large_category), method: :delete,  class:"btn-sm btn-danger" %></td>
+				               </div>
+				              <% end %>
+										<% end %>
+										</tr>
+									 </tbody>
+								 </table>
+								 
+								 
+		   </div>
+	  </div>
+</div>

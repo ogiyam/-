@@ -1,0 +1,2 @@
+module LargeCategoryHelper
+end
