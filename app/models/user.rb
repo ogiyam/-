@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :large_categories, dependent: :destroy
   has_many :todos, dependent: :destroy
+  has_many :genres, dependent: :destroy
 
   validates :name, presence: true
   validates :goal, length: { maximum: 30 }

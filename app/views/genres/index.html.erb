@@ -1,0 +1,29 @@
+<h1>Genre#index</h1>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+       <h3>New</h3>
+
+           <%= form_with model: @genre, local:true do |f| %>
+
+           <%= render 'large_categories/errors', bg: @genre %>
+
+          <div class="text_area">
+             <%= f.label :genre %><br>
+             <%= f.text_area :genre %><br>
+          </div>
+         <%= f.submit '新規作成', class: "btn btn-primary col-xs-12" %>
+       <% end %>
+
+        <% @genres.each do |genre| %>
+          <div class="card" style="width: 30rem;">
+           	<div class="fa-solid fa-pen" "fa-solid fa-trash-can">
+             <%= genre.name %>
+            </div>
+          </div>
+        <% end %>
+
+    </div>
+  </div>
+</div>

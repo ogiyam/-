@@ -9,12 +9,14 @@ Rails.application.routes.draw do
 
 
   resources :users,  only: [:show], shallow: true do
-    resources :large_categories, only: [:index, :create, :edit, :destroy], shallow:  true do
-      resources :small_categories, only: [:index, :new, :create, :edit, :destroy]
+    resources :large_categories, only: [:index, :create, :edit, :update, :destroy], shallow:  true do
+      resources :small_categories
     end
   end
 
    resources :todos, only: [:index, :create, :edit, :update, :destroy]
 
+   resources :genres, only: [:index, :create, :edit, :update, :destory]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+

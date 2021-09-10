@@ -1,0 +1,10 @@
+      <% if bg.errors.any? %>
+       <p class="err_head"><%= bg.errors.count %> errors prohibited this category from being saved:</p>
+       <ul class="err_list">
+     　  <% bg.errors.full_messages.each do |messages| %>
+         <li><%= messages %></li>
+        <% end %>
+       </ul>
+      <% end %>
+
+   

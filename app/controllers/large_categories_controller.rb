@@ -4,6 +4,7 @@ class LargeCategoriesController < ApplicationController
 
 
   def index
+    @user = User.find(params[:user_id])
     @large_categories = LargeCategory.all
     @large_category = LargeCategory.new
   end
@@ -11,8 +12,9 @@ class LargeCategoriesController < ApplicationController
   def create
     @large_category = LargeCategory.new(large_category_params)
     @large_category.user_id = current_user.id
+    @large_category.genre_id = genre.id
     if @large_category.save
-      redirect_to large_categories_path(@large_category), notice: "大カテゴリーを追加しました"
+      redirect_to user_large_categories, notice: "大カテゴリーを追加しました"
     else
       @large_categories = LargeCategory.all
       render 'index'
@@ -24,7 +26,7 @@ class LargeCategoriesController < ApplicationController
 
   def update
     if @large_categories.update(large_category_params)
-      redirect_to large_categories_path(@large_category), notice: "大カテゴリーを更新しました"
+      redirect_to user_large_categories, notice: "大カテゴリーを更新しました"
     else
       render "edit"
     end
@@ -32,20 +34,19 @@ class LargeCategoriesController < ApplicationController
 
   def destory
     @large_category.destroy
-    redirect_to large_categories_path
+    redirect_to user_large_categories
   end
-
 
   private
 
   def large_category_params
-    params.require(:large_category).permit(:problem, :solution)
+    params.require(:large_category).permit(:user_id, :problem, :solution, :genre_id)
   end
 
   def ensure_correct_user
     @large_categories = LargeCategory.find(params[:id])
     unless @large_categories.user == current_user
-      redirect_to large_categories_path
+      redirect_to user_large_categories
     end
   end
 end

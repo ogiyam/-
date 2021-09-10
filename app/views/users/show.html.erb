@@ -1,4 +1,15 @@
 <h1>Users#show</h1>
 
-<div><%= user.name %></div>
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-3">
+
+<div><%= @user.name %></div>
+<%= link_to 'ジャンル一覧', genres_path, class: "btn btn-primary col-xs-12" %>
+<%= link_to '大カテゴリ一覧', user_large_categories_path, class: "btn btn-primary col-xs-12" %>
+<%= link_to '新規ノート', new_large_category_small_category_path, class: "btn btn-primary col-xs-12" %>
+
+
+
+
 

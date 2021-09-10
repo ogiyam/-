@@ -1,2 +1,27 @@
 <h1>SmallCategory#index</h1>
-<p>Find me in app/views/small_category/index.html.erb</p>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+       <h3><%= @large_category.genre.name %>><%= large_category.problem %>>ここ！</h3>
+
+        <div class="card" style="width: 30rem;">
+            <div class="card-header">
+             <%= genre.name %>
+            </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= @large_category.problem %></li>
+            <li class="list-group-item"><%= @large_category.solution %></li>
+          </ul>
+        </div>
+
+        <% @small_category.each do |small_category| %>
+        <div class="card" style="width: 30rem;">
+          <div class="card-header">
+           <%= small_category.title %>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>

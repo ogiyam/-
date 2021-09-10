@@ -1,6 +1,7 @@
 class SmallCategoriesController < ApplicationController
   def index
      @small_categories = SmallCategory.all
+     @large_category = LargeCategory.find(params[:large_category_id])
   end
 
   def new
@@ -37,7 +38,7 @@ class SmallCategoriesController < ApplicationController
   private
 
   def small_category_params
-    params.require(:small_category).permit(:title, :note)
+    params.require(:small_category).permit(:large_category_id, :title, :note)
   end
 
   def ensure_correct_user
