@@ -39,7 +39,7 @@ class LargeCategoriesController < ApplicationController
   private
 
   def large_category_params
-    params.require(:large_category).permit(:genre)
+    params.require(:large_category).permit(:problem, :solution)
   end
 
   def ensure_correct_user

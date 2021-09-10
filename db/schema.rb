@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_08_083440) do
+ActiveRecord::Schema.define(version: 2021_09_09_150738) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -35,13 +35,6 @@ ActiveRecord::Schema.define(version: 2021_09_08_083440) do
 
   create_table "large_categories", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.string "genre", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "middle_categories", force: :cascade do |t|
-    t.integer "large_categories_id", null: false
     t.string "problem", null: false
     t.string "solution", null: false
     t.datetime "created_at", null: false
@@ -49,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_083440) do
   end
 
   create_table "small_categories", force: :cascade do |t|
-    t.integer "middle_categories_id", null: false
+    t.integer "large_category_id", null: false
     t.string "title", null: false
     t.text "note", limit: 4294967295, null: false
     t.datetime "created_at", null: false
@@ -73,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_09_08_083440) do
     t.string "goal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "genre"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get '/about' => 'homes#about', as: 'about'
 
 
-  resources :large_categories,  only: [:index, :create, :edit, :destroy], shallow: true do
-    resources :middle_categories, only: [:index, :create, :edit, :destroy], shallow:  true do
+  resources :users,  only: [:show], shallow: true do
+    resources :large_categories, only: [:index, :create, :edit, :destroy], shallow:  true do
       resources :small_categories, only: [:index, :new, :create, :edit, :destroy]
     end
   end

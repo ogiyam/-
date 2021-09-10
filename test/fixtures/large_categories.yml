@@ -2,8 +2,10 @@
 
 one:
   user_id: 1
-  genre: MyString
+  problem: MyString
+  solution: MyString
 
 two:
   user_id: 1
-  genre: MyString
+  problem: MyString
+  solution: MyString
