@@ -4,11 +4,11 @@
   <div class="row">
     <div class="col-md-3">
        <h3>New</h3>
-       
-       <%= form_with model: @large_category, local:true do |f| %>
-       
+
+       <%= form_with model: @large_category, url: user_large_categories_path, local:true do |f| %>
+
        <%= render 'large_categories/errors', bg: @large_category %>
-       
+
          <div class="form-inline mb-3 text-right">
             <span><%= f.label :genre_id, "ジャンル" %></span>
             <span><%= f.collection_select :genre_id, Genre.all, :name, class: "form-control" %></span>
@@ -18,7 +18,7 @@
              <%= f.label :problem %><br>
              <%= f.text_field :problem %><br>
           </div>
-          
+
           <div class="text_area">
              <%= f.label :solution  %><br>
              <%= f.text_area :solution %><br>
@@ -27,22 +27,22 @@
        <% end %>
 
 
-			<% @large_category.each do |large_category| %>
+			<% @large_categories.each do |large_category| %>
           <div class="card" style="width: 30rem;">
             <div class="card-header">
              	<div class="fa-solid fa-pen" "fa-solid fa-trash-can">
                <%= genre.name %>
               </div>
             </div>
-              
+
               <ul class="list-group list-group-flush">
                <li class="list-group-item"><%= large_category.problem %></li>
                <li class="list-group-item"><%= large_category.solution %></li>
               </ul>
           </div>
       <% end %>
-      
-      
+
+
     </div>
   </div>
 </div>

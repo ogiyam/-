@@ -6,8 +6,8 @@
 
 <div><%= @user.name %></div>
 <%= link_to 'ジャンル一覧', genres_path, class: "btn btn-primary col-xs-12" %>
-<%= link_to '大カテゴリ一覧', user_large_categories_path, class: "btn btn-primary col-xs-12" %>
-<%= link_to '新規ノート', new_large_category_small_category_path, class: "btn btn-primary col-xs-12" %>
+<%= link_to '大カテゴリ一覧', user_large_categories_path(@user, @large_category), class: "btn btn-primary col-xs-12" %>
+
 
 
 

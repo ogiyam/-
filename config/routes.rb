@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
    resources :todos, only: [:create, :destroy]
 
-   resources :genres, only: [:index, :create, :edit, :update, :destory]
+   resources :genres, only: [:index, :create, :destory]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
