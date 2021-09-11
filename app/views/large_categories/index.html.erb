@@ -11,7 +11,7 @@
 
          <div class="form-inline mb-3 text-right">
             <span><%= f.label :genre_id, "ジャンル" %></span>
-            <span><%= f.collection_select :genre_id, Genre.all, :name, class: "form-control" %></span>
+            <span><%= f.collection_select :genre_id, Genre.all, :name, :name %></span>
           </div>
 
           <div class="text_field">
@@ -42,7 +42,7 @@
           </div>
       <% end %>
 
-
+      <%= link_to 'ジャンル一覧', genres_path(@genre,@large_category), class: "btn btn-primary col-xs-12" %>
     </div>
   </div>
 </div>

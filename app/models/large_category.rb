@@ -5,5 +5,5 @@ class LargeCategory < ApplicationRecord
  has_many :genres, dependent: :destroy
 
  validates :problem, presence: true, length: { maximum: 30 }
- validates :solution, presence: true,length: { maximum: 30 }
+ validates :solution, presence: true, length: { maximum: 30 }
 end

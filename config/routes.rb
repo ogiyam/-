@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :users
 
@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
    resources :todos, only: [:create, :destroy]
 
-   resources :genres, only: [:index, :create, :destory]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+   resources :genres, only: [:index, :create, :edit, :update]
+
 end
+
 
