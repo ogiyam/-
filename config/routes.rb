@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-   resources :todos, only: [:create, :destroy]
+   resources :todos, only: [:new, :create, :destroy]
 
    resources :genres, only: [:index, :create, :edit, :update]
 

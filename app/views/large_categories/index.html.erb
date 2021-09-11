@@ -7,7 +7,7 @@
 
        <%= form_with model: @large_category, url: user_large_categories_path, local:true do |f| %>
 
-       <%= render 'large_categories/errors', bg: @large_category %>
+       <%= render 'layouts/errors', bg: @large_category %>
 
          <div class="form-inline mb-3 text-right">
             <span><%= f.label :genre_id, "ジャンル" %></span>
