@@ -15,13 +15,15 @@
           </div>
          <%= f.submit '新規作成', class: "btn btn-primary col-xs-12" %>
        <% end %>
+    </div>
 
-        <% @genres.each do |genre| %>
-          <div class="card" style="width: 30rem;">
-           	<div class="fa-solid fa-pen" "fa-solid fa-trash-can">
-             <%= genre.name %>
+        <div class="col-md-8 offset-md-1">
+          <% @genres.each do |genre| %>
+            <div class="card" style="width: 30rem;">
+             	<div class="fa-solid fa-pen" "fa-solid fa-trash-can">
+              <%= genre.name %>
             </div>
-          </div>
+        </div>
         <% end %>
        <%= link_to 'user/show', user_path(current_user), class: "btn btn-primary col-xs-12" %>
     </div>

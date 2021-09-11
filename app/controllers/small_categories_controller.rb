@@ -1,4 +1,8 @@
 class SmallCategoriesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+
+
   def index
      @small_categories = SmallCategory.all
      @large_category = LargeCategory.find(params[:large_category_id])
@@ -31,6 +35,7 @@ class SmallCategoriesController < ApplicationController
   end
 
   def destory
+    @small_category = SmallCategory.find(params[:id])
     @small_category.destroy
     redirect_to small_categories_path
   end

@@ -12,7 +12,7 @@ class LargeCategoriesController < ApplicationController
   def create
     @large_category = LargeCategory.new(large_category_params)
     @large_category.user_id = current_user.id
-    @large_category.genre_id = genre.id
+    # @large_category.genre_id = genre.id
     if @large_category.save
       redirect_to user_large_categories, notice: "大カテゴリーを追加しました"
     else
@@ -33,6 +33,7 @@ class LargeCategoriesController < ApplicationController
   end
 
   def destory
+    @large_category = LargeCategory.find(params[:id])
     @large_category.destroy
     redirect_to user_large_categories
   end
