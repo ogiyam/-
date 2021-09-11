@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-   resources :todos, only: [:index, :create, :edit, :update, :destroy]
+   resources :todos, only: [:create, :destroy]
 
    resources :genres, only: [:index, :create, :edit, :update, :destory]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
