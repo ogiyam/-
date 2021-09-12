@@ -5,14 +5,13 @@ class LargeCategoriesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @large_categories = LargeCategory.all
+    @large_categories = LargeCategory.all.includes(:genre_id)
     @large_category = LargeCategory.new
   end
 
   def create
     @large_category = LargeCategory.new(large_category_params)
     @large_category.user_id = current_user.id
-    # @large_category.genre_id = genre.id
     if @large_category.save
       redirect_to user_large_categories, notice: "大カテゴリーを追加しました"
     else

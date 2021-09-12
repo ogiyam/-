@@ -2,7 +2,7 @@ class TodosController < ApplicationController
   before_action :authenticate_user!
 
   def new
-   @todos = Todo.all
+   @todos = Todo.all.order(created_at: :desc)
    @todo = Todo.new
   end
 
@@ -18,9 +18,22 @@ class TodosController < ApplicationController
 
   def destroy
     @todo = Todo.find(params[:id])
-    @todo.destroy
-    redirect_to new_todo_path
+  #   if @todo.destroy
+        respond_to do |format|
+        format.html { redirect_to new_todo_path }
+        format.json { render json: { id: params[:id] } }
+        format.json {render :json => @todo}
+  #       redirect_to new_todo_path
+  #       end
+  #   end
+  # end
+
+    # todo_params[:todo].each do |todo|
+    #   Todo.destroy(name: todo[:name])
+    end
   end
+
+
 
   private
 
