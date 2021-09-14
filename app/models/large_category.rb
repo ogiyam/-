@@ -2,8 +2,8 @@ class LargeCategory < ApplicationRecord
 
  belongs_to :user
  has_many :small_categories, dependent: :destroy
- has_many :genres, dependent: :destroy
+ belongs_to :genre, optional: true
 
- validates :problem, presence: true, length: { maximum: 30 }
- validates :solution, presence: true, length: { maximum: 30 }
+ validates :problem, presence: true
+ validates :solution, presence: true
 end

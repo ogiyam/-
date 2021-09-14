@@ -1,6 +1,6 @@
 class Genre < ApplicationRecord
 
-  belongs_to :large_category, optional: true
+  has_many :large_categories, dependent: :destroy
 
   validates :genre, presence: true
 

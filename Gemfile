@@ -67,7 +67,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'kaminari','~> 1.2.1'
-#gem 'summernote-rails', '~> 0.8.10.0'
+gem 'summernote-rails', '~> 0.8.10.0'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

@@ -1,0 +1,10 @@
+  <% todos.each do |todo| %>
+      <div data-todo="<%= todo.id %>" class="task-list">
+      <div  class="card shadow-lg" style="width:60%; margin:20px auto;">
+         <i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash-can"></i>
+         <%= todo.task %><br>
+         <%= l todo.created_at, format: :short %>
+         <%= link_to "削除する", todo_path(todo),  method: :delete, data: {confirm: "削除しますか？"} %>
+      </div>
+     </div>
+  <% end %>

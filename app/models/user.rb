@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_many :todos, dependent: :destroy
 
   validates :name, presence: true
-  validates :goal, length: { maximum: 30 }
 end

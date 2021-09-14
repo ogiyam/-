@@ -1,40 +1,28 @@
-<h1>Todos#new</h1>
 <div class="justify-content-center">
     <div class="col text-center">
-      
-      
-       <h3>New</h3>
-
-           <%= form_with model: @todo, local:true do |f| %>
-
-           <%= render 'layouts/errors', bg: @todo %>
-
-          <div class="text_area">
-             <%= f.text_area :task %><br>
-          </div>
-         <%= f.submit '新規作成', class: "btn btn-primary col-xs-12" %>
-       <% end %>
 
 
-　　　　<!--<div class="text-right">-->
-            <% @todos.each do |todo| %>
-        　    <div class="task-list">
-              <div class="card" style="width:80%; margin:10px auto;">
-                 <i class="fa-solid fa-pen"></i><i class="fa-solid fa-trash-can"></i>
-                 <%= todo.task %>
-                 <%= link_to "削除する", todo_path(todo),  method: :delete, remote: true, data: {confirm: "削除しますか？"} %>
-              </div>
-             </div>
-            <% end %>
+ <div class="trash-box" style="background-color:black; width:400px;height:100px "></div>
 
-           <%= link_to 'user/show', user_path(current_user), class: "btn btn-primary col-xs-12" %>
+       <h3>- まとめるリスト -</h3>
 
+
+       <div id ="new-todo">
+        <%= render  "todos/todo_form", todo: @todo %>
+       </div>
+
+
+      <div id="new-todo-index">
+        <%= render  "todos/index", todos: @todos%>
+      </div>
+
+
+      <%= link_to 'user/show', user_path(current_user), class: "btn btn-primary col-xs-12" %>
+
+
+
+
+        <div class="fa-solid fa-trash-can" style="width:100px; height:100px"></div>
 
   </div>
 </div>
-
-
-
-
-        <div class="trash-box" style="background-color:black;width:100%;height:60px"></div>
-        <div class="fa-solid fa-trash-can" style="width:100px;height:100px"></div>

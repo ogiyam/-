@@ -1,14 +1,13 @@
 <h1>SmallCategory#index</h1>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3">
-       <h3><%= @large_category.genre.name %>><%= large_category.problem %>>ここ！</h3>
-       <%= link_to '新規ノート', new_large_category_small_category_path(:large_category_id), class: "btn btn-primary col-xs-12" %>
+<div class="justify-content-center">
+    <div class="col text-center">
+
+
 
         <div class="card" style="width: 30rem;">
             <div class="card-header">
-             <%= genre.name %>
+             <%= @large_category.genre.name %>
             </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><%= @large_category.problem %></li>
@@ -22,7 +21,9 @@
            <%= small_category.title %>
           </div>
         </div>
+        <% end %>
+        
+          <%= link_to '新規ノート', new_large_category_small_category_path, class: "btn btn-primary col-xs-12" %>
 
-    </div>
   </div>
 </div>
