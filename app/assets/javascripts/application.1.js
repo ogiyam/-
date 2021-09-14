@@ -26,9 +26,9 @@
 
 
 // ドラッグ＆ドロップ
-
+// ".task-list"二重に変えました
 $(function() {
-  $('.task-list').draggable();
+  $(".task-list").draggable();
     $(".trash-box").droppable({
       accept: ".task-list",
       hoverClass: "move-trash",

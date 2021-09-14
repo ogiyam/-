@@ -16,11 +16,11 @@ class TodosController < ApplicationController
 		end
 	end
 
-	 def destroy
+	def destroy
 		@todo = Todo.find(params[:id])
     @todo.destroy
 			redirect_to new_todo_path, notice: "まとめ終了"
- 　　end
+	end
 
 
 	private
@@ -28,8 +28,8 @@ class TodosController < ApplicationController
 	def todo_params
 		params.require(:todo).permit(:task)
 	end
+end
 
- end
 
 
 

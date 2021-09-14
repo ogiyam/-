@@ -1,14 +1,25 @@
 <h1>note</h1>
 
-
 <form method="post">
   <textarea id="summernote" name="editordata"></textarea>
 </form>
-<script>
-$(document).ready(function() {
-  $('#summernote').summernote();
-});
-</script>
+
+<div class=".click2edit"><%= link_to 'edit',  edit_small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %></div>
 
 
 
+
+
+    <%= link_to '一覧へ戻る',  user_large_categories_path(@large_category), class: "btn btn-primary col-xs-12" %>
+    <%= link_to 'show',  small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
+    <%= link_to 'edit',  edit_small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
+    <%= link_to 'delete',  small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
+
+
+
+<!--一旦置いておく-->
+<!--<script>-->
+<!--$(document).ready(function() {-->
+<!--  $('#summernote').summernote();-->
+<!--});-->
+<!--</script>-->

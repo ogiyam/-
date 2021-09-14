@@ -28,9 +28,18 @@
 // summernote
 $(document).ready(function() {
   $('#summernote').summernote({
-  height:580,
+  height:500,
   fontNames:["YuGothic","Yu Gothic","Hiragino Kaku Gothic Pro","Meiryo","sans-serif","Arial","Arial Black","Comic Sans MS","Courier New","Helvetica Neue","Helvetica","Impact","Lucida Grande","Tahoma","Times New Roman","Verdana"],
-  lang:"ja-JP",
-  });
+  lang:"ja-JP"});
+  
+  var edit = function() {
+  $('.click2edit').summernote({focus: true});
+  };
+
+  var save = function() {
+  var markup = $('.click2edit').summernote('code');
+  $('.click2edit').summernote('destroy');
+  };
+  
   });
 

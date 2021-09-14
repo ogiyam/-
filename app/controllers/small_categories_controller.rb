@@ -24,6 +24,11 @@ class SmallCategoriesController < ApplicationController
     end
   end
 
+  def show
+    @large_category = LargeCategory.find(params[:large_category_id])
+    @small_category = SmallCategory.find(params[:id])
+  end
+
   def edit
   end
 
