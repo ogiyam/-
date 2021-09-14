@@ -18,3 +18,19 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+
+
+
+
+
+// summernote
+$(document).ready(function() {
+  $('#summernote').summernote({
+  height:580,
+  fontNames:["YuGothic","Yu Gothic","Hiragino Kaku Gothic Pro","Meiryo","sans-serif","Arial","Arial Black","Comic Sans MS","Courier New","Helvetica Neue","Helvetica","Impact","Lucida Grande","Tahoma","Times New Roman","Verdana"],
+  lang:"ja-JP",
+  });
+  });
+

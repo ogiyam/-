@@ -1,2 +1,31 @@
-<h1>LargeCategory#edit</h1>
-<p>Find me in app/views/large_category/edit.html.erb</p>
+      <h1>LargeCategory#edit</h1>
+
+      <%= form_with model: @large_category, local:true do |f| %>
+
+        <% if @large_category.errors.any? %>
+             <p class="err_head"><%= large_category.errors.count %> errors prohibited this category from being saved:</p>
+             <ul class="err_list">
+           　  <% large_category.errors.full_messages.each do |messages| %>
+               <li><%= messages %></li>
+              <% end %>
+             </ul>
+      <% end %>
+
+          <div class="form-inline mb-3 text-right">
+            <span><%= f.label :genre_id, "ジャンル" %></span>
+            <span><%= f.collection_select :genre_id, Genre.all, :id, :name %></span>
+          </div>
+
+          <div class="text_field">
+             <%= f.label :problem %><br>
+             <%= f.text_field :problem %><br>
+          </div>
+
+          <div class="text_area">
+             <%= f.label :solution  %><br>
+             <%= f.text_area :solution %><br>
+          </div>
+         <%= f.submit '保存する', class: "btn btn-primary col-xs-12" %>
+    <% end %>
+
+    <%= link_to '一覧へ戻る',  user_large_categories_path(@large_category), class: "btn btn-primary col-xs-12" %>
