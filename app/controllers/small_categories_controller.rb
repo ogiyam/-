@@ -39,7 +39,7 @@ class SmallCategoriesController < ApplicationController
   def destory
     # @small_category = SmallCategory.find(params[:id])
     @small_category = SmallCategory.find_by(id: params[:id], large_category_id: params[:large_category_id], user_id: current_user.id).destroy
-    redirect_to small_categories_path
+    redirect_to small_categories_path(@small_category)
   end
 
   private
@@ -47,5 +47,4 @@ class SmallCategoriesController < ApplicationController
   def small_category_params
     params.require(:small_category).permit(:title, :note)
   end
-
 end

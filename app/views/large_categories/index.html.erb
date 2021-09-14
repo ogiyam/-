@@ -32,31 +32,30 @@
         <% end %>
     </div>
 
-	
-	
-	
+
+
+
 	  <div class="col-md-5 offset-md-1">
-	
+
 			<% @large_categories.each do |large_category| %>
-			  <%= link_to  large_category_small_categories_path(large_category) do %>
-	
-					<div class="card" style="width: 30rem; margin:20px;">
-					  <div class="card-header">
-					     <%= large_category.genre.name %>
-					     <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
-					     <%= link_to '', large_category_path(large_category), method: :delete, data: {confirm: "削除しますか？"}, class: "fas fa-trash" %>
-					  </div>
-					
-	
+
+				<div class="card shadow-lg" style="width:30rem; margin:20px;">
+				  <div class="card-header" >
+				     <%= large_category.genre.name %>
+				     <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>
+				     <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
+				     <%= link_to '', large_category_path(large_category), method: :delete, data: {confirm: "削除しますか？"}, class: "fas fa-trash" %>
+				  </div>
+
+
           <ul class="list-group list-group-flush">
            <li class="list-group-item"><%= large_category.problem %></li>
            <li class="list-group-item"><%= large_category.solution %></li>
           </ul>
-	　　　</div>
-	      <% end %>
+        </div>
 	    <% end %>
 	  </div>
 
-    
+
   </div>
 </div>
