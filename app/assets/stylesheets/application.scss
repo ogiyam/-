@@ -23,10 +23,50 @@
 
 
 body{
+  width: 100%;
   background-color: #ffffff;
 }
 
+header{
+  border-bottom: 2rem solid #FFFF00;
+  display: inline-block;
+  padding: 2rem;
+  position: relative;
+// border: 4mm ridge rgba(170, 50, 220, .6);
+}
+
+
 .trash-box{
   position: sticky;
-  top: 0px;
+  top: 200px;
+  text-align: left;
+  margin-left: 130px;
 }
+
+
+.btn_design {
+  font-size: 30px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  text-align: center;
+  font-weight: bold;
+  padding: 20px 10px;
+  background-color: #ffffff;
+  color: #000000;
+  border: #000000 solid 3px;
+  border-radius: 10px;
+  }
+
+/* マウスオーバー時 */
+.btn_design:hover {
+  color: #ffffff;
+  background-color: #000000;
+  cursor: pointer;
+ }
+
+ .hover:hover{
+  color: green;
+  cursor: pointer;
+ }

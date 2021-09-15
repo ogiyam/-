@@ -3,24 +3,21 @@
 
 
       <h3>- まとめるリスト -</h3>
-       <div class="trash-box" style="background-color:black; width:400px;height:100px "></div>
+      <div class="trash-box"><i class="fas fa-trash fa-7x" ></i></div>
 
        <div id ="new-todo">
         <%= render  "todos/todo_form", todo: @todo %>
        </div>
 
 
-      <div id="new-todo-index">
-        <%= render  "todos/index", todos: @todos%>
-      </div>
+       <div id="new-todo-index">
+        <%= render  "todos/index", todos: @todos %>
+       </div>
 
 
       <%= link_to 'user/show', user_path(current_user), class: "btn btn-primary col-xs-12" %>
 
 
-
-
-        <div class="fa-solid fa-trash-can" style="width:100px; height:100px"></div>
 
   </div>
 </div>

@@ -28,29 +28,31 @@
   </head>
 
 
-  <body style="padding-top:5rem">
+    <body style="padding-top:5rem">
 
-  <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top p-0">
-    <div class="container-fluid">
-      <nav class="navbar-nav mr-auto">
-        <%= link_to image_tag('top-logo-header.png'), root_path, class:"header-title" %>
-      </nav>
-      <nav>
-     <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-    </nav>
-    </div>
-   </header>
-    <%= yield %>
-  </body>
+      <header class="navbar navbar-expand-lg navbar-dark bg-info fixed-top" >
+        <div class="container-fluid">
+          
+          <nav class="navbar-nav mr-auto">
+            <%= link_to image_tag('top-logo-header.png'), root_path, class:"header-title"  %>
+          </nav>
+          
+          <nav>
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to "新規登録", new_user_registration_path %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_user_session_path %>
+              </li>
+            <% end %>
+          </nav>
+        </div>
+      </header>
+      <%= yield %>
+    </body>
 </html>

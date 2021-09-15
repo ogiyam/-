@@ -4,11 +4,16 @@
 
 .top-logo{
   height: 100vh;
-  // width: %;
   background-image: url('top-logo(2).png');
   background-position: center;
   background-repeat: no-repeat;
-	background-size: 30% auto;
-	margin-top: -250px;
+	background-size: 40% auto;
+	margin-top: -200px;
+}
+
+.top-logo-bottom{
+  height: 10vh;
+  background-image: url('top-logo-bottom.png');
+  bottom: 0;
 }
 

@@ -34,7 +34,7 @@ class SmallCategoriesController < ApplicationController
 
   def update
     @large_category = LargeCategory.find(params[:large_category_id])
-    if @small_categories.update(small_category_params)
+    if @small_category.update(small_category_params)
       redirect_to small_categories_path(@small_category), notice: "ノートを更新しました"
     else
       render "edit"

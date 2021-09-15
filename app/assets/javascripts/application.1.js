@@ -26,15 +26,17 @@
 
 
 // ドラッグ＆ドロップ
-// ".task-list"二重に変えました
+
 $(function() {
-  $(".task-list").draggable();
+  $('.task-list').draggable();
     $(".trash-box").droppable({
       accept: ".task-list",
       hoverClass: "move-trash",
       drop: function(e, ui){
         // デフォルトの動作をキャンセル
         e.preventDefault();
+        var delete_message = confirm("削除してもよろしいですか？");
+        if(delete_message == true){
 
           //ドロップされた要素を取得 jQueryオブジェクトからDOM要素を取り出す
           var delete_todo = ui.draggable[0];
@@ -57,5 +59,6 @@ $(function() {
             alert("エラー");
           })
         }
+      }
     })
-  });
+  })

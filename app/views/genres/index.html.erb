@@ -2,7 +2,7 @@
 
 <div class="justify-content-center">
     <div class="col text-center">
-      
+
     <div class="col-md-3">
        <h3>New</h3>
 
@@ -21,8 +21,8 @@
         <div class="col-md-8 offset-md-1">
           <% @genres.each do |genre| %>
             <div class="card" style="width: 30rem;">
-             	<div class="fa-solid fa-pen" "fa-solid fa-trash-can">
               <%= genre.name %>
+              <%= link_to '', edit_genre_path(genre), class: "fas fa-edit" %>
             </div>
         </div>
         <% end %>

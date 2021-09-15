@@ -16,11 +16,22 @@ class TodosController < ApplicationController
 		end
 	end
 
-	def destroy
-		@todo = Todo.find(params[:id])
+  def destroy
+  #   @todo = Todo.find(params[:id])
+  #   # @todo.destroy
+  #       respond_to do |format|
+  #       format.html { redirect_to new_todo_path }
+  #       format.json { render json: { id: params[:id] } }
+  #       format.json {render :json => @todo}
+  # #       redirect_to new_todo_path
+  # #       end
+  # #   end
+  # # end
+
+    @todo = Todo.find(params[:id])
     @todo.destroy
 			redirect_to new_todo_path, notice: "まとめ終了"
-	end
+  end
 
 
 	private
@@ -28,6 +39,8 @@ class TodosController < ApplicationController
 	def todo_params
 		params.require(:todo).permit(:task)
 	end
+
+
 end
 
 

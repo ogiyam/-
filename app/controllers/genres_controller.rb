@@ -7,8 +7,8 @@ class GenresController < ApplicationController
   end
 
   def create
-  @genres = Genre.all
-  @genre = Genre.new(genre_params)
+   @genres = Genre.all
+   @genre = Genre.new(genre_params)
     if @genre.save
       redirect_to genres_path, notice: "ジャンルを追加しました"
     else
@@ -17,11 +17,13 @@ class GenresController < ApplicationController
   end
 
   def edit
+     @genre = Genre.find(params[:id])
   end
 
   def update
+    @user = current_user
     if @genre.update(genre_params)
-      redirect_to genres_path, notice: "ジャンルを更新しました"
+      redirect_to genre_path(@genre), notice: "ジャンルを更新しました"
     else
       render :edit
     end
@@ -32,5 +34,4 @@ class GenresController < ApplicationController
   def genre_params
     params.require(:genre).permit(:name)
   end
-
 end
