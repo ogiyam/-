@@ -1,0 +1,13 @@
+<h1>note</h1>
+
+
+<%= @small_category.title %>
+<%= @small_category.note %>
+
+
+
+
+   <!--link_to '一覧へ戻る', large_category_small_categories_path, class: "btn btn-primary col-xs-12"-->
+    <%= link_to 'show',  small_category_path(@small_category), class: "btn btn-primary col-xs-12" %>
+    <%= link_to 'edit',  edit_small_category_path(@small_category), class: "btn btn-primary col-xs-12" %>
+    <%= link_to 'delete',  small_category_path(@small_category), class: "btn btn-primary col-xs-12" %>

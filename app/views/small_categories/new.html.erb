@@ -1,10 +1,25 @@
 <h1>note</h1>
 
-<form method="post">
-  <textarea id="summernote" name="editordata"></textarea>
-</form>
 
-<div class=".click2edit"><%= link_to 'edit',  edit_small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %></div>
+
+
+
+      <%= form_with model:[@large_category, @small_category],　url: new_large_category_small_category_path, local:true do |f| %>
+
+         <%= render 'layouts/errors', bg: @small_category %>
+
+
+          <div class="text_field">
+             <%= f.label :title %><br>
+             <%= f.text_field :title %><br>
+             <%= f.hidden_field :large_category_id, :value => @large_category.id %>
+          </div>
+          <textarea id="summernote" name="small_category[note]"></textarea>
+
+
+         <%= f.submit '新規作成', class: "btn btn-primary col-xs-12" %>
+
+      <% end %>
 
 
 
@@ -16,10 +31,58 @@
     <%= link_to 'delete',  small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
 
 
-
+<div class=".click2edit"><%= link_to 'edit',  edit_small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %></div>
 <!--一旦置いておく-->
 <!--<script>-->
 <!--$(document).ready(function() {-->
 <!--  $('#summernote').summernote();-->
 <!--});-->
 <!--</script>-->
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCType html>-->
+<!--<html>-->
+<!--    <head>-->
+<!--    <meta charset="UTF-8">-->
+    <!-- include libraries(jQuery, bootstrap) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+     <!--include summernote css/js-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ja-JP.js"></script>
+
+    <script text="text/javascript">
+    $(document).ready(function(){
+        var FIELD_NAME = "note";
+
+
+        var code = parent.Xrm.Page.getAttribute("note").getValue();
+        $('#summernote').summernote("code", code);
+
+        $('#summernote').on('summernote.blur', function() {
+            var code = $('#summernote').summernote("code");
+            parent.Xrm.Page.getAttribute("note").setValue(code);
+        });
+    });
+    </script>
+    <meta>
+    </head>
+
+    <body onfocusout="parent.setEmailRange();" style="overflow-wrap: break-word;">
+        <div id="summernote"></div>
+    </body>
+</html>
+
+
+

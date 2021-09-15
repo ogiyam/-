@@ -3,7 +3,7 @@ class SmallCategoriesController < ApplicationController
 
 
   def index
-   @large_category = LargeCategory.find(params[:large_category_id])
+  @large_category = LargeCategory.find(params[:large_category_id])
    @small_categories = SmallCategory.all
   end
 
@@ -15,9 +15,9 @@ class SmallCategoriesController < ApplicationController
   def create
     @large_category = LargeCategory.find(params[:large_category_id])
     @small_category = SmallCategory.new(small_category_params)
-    @small_category.user_id = current_user.id
+    # @large_category.user_id = current_user.id
     if @small_category.save
-      redirect_to large_categories_path(@small_category), notice: "ノートを追加しました"
+      redirect_to large_category_small_categories_path, notice: "ノートを追加しました"
     else
       @small_categories = SmallCategory.all
       render 'index'
@@ -25,17 +25,18 @@ class SmallCategoriesController < ApplicationController
   end
 
   def show
-    @large_category = LargeCategory.find(params[:large_category_id])
     @small_category = SmallCategory.find(params[:id])
   end
 
   def edit
+    @small_category = SmallCategory.find(params[:id])
   end
 
   def update
     @large_category = LargeCategory.find(params[:large_category_id])
+    @small_category = SmallCategory.find(params[:id])
     if @small_category.update(small_category_params)
-      redirect_to small_categories_path(@small_category), notice: "ノートを更新しました"
+      redirect_to large_category_small_categories_path, notice: "ノートを更新しました"
     else
       render "edit"
     end
@@ -50,6 +51,6 @@ class SmallCategoriesController < ApplicationController
   private
 
   def small_category_params
-    params.require(:small_category).permit(:title, :note)
+    params.require(:small_category).permit(:title, :note, :large_category_id)
   end
 end

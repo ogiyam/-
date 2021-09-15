@@ -7,10 +7,11 @@ class TodosController < ApplicationController
 	end
 
 	def create
-	 @todos = Todo.all
-	 @todo = Todo.new(todo_params)
-		if @todo.save
-			redirect_to new_todo_path, notice: "「あとでまとめる」が追加されました"
+	 @todos = Todo.all.order(created_at: :desc)
+	 @todo = Todo.new
+	 todo = Todo.new(todo_params)
+		if todo.save
+
 		else
 			render :new
 		end
@@ -18,19 +19,19 @@ class TodosController < ApplicationController
 
   def destroy
   #   @todo = Todo.find(params[:id])
-  #   # @todo.destroy
+  #    @todo.destroy
   #       respond_to do |format|
   #       format.html { redirect_to new_todo_path }
   #       format.json { render json: { id: params[:id] } }
   #       format.json {render :json => @todo}
-  # #       redirect_to new_todo_path
-  # #       end
-  # #   end
-  # # end
+  #        redirect_to new_todo_path
+  #       end
+  #   end
+  #  end
 
     @todo = Todo.find(params[:id])
     @todo.destroy
-			redirect_to new_todo_path, notice: "まとめ終了"
+
   end
 
 

@@ -21,9 +21,10 @@ class GenresController < ApplicationController
   end
 
   def update
+    @genre = Genre.find(params[:id])
     @user = current_user
     if @genre.update(genre_params)
-      redirect_to genre_path(@genre), notice: "ジャンルを更新しました"
+      redirect_to genres_path, notice: "ジャンルを更新しました"
     else
       render :edit
     end

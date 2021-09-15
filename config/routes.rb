@@ -12,10 +12,10 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
-  end  
+  end
 
 
-  resources :users,  only: [:show], shallow: true do
+  resources :users,  only: [:show, :edit, :update], shallow: true do
     resources :large_categories, only: [:index, :create, :edit, :update, :destroy], shallow:  true do
       resources :small_categories
     end

@@ -16,7 +16,6 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 
@@ -27,9 +26,10 @@
 
 // ドラッグ＆ドロップ
 
-$(function() {
+function draggable_ini(){
+  console.log('draggable_ini');
   $('.task-list').draggable();
-    $(".trash-box").droppable({
+  $(".trash-box").droppable({
       accept: ".task-list",
       hoverClass: "move-trash",
       drop: function(e, ui){
@@ -60,5 +60,8 @@ $(function() {
           })
         }
       }
-    })
   })
+}
+$(function() {
+   draggable_ini()
+})
