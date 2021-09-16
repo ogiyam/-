@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stars/create'
+  get 'stars/destroy'
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   devise_for :users
@@ -17,7 +19,9 @@ Rails.application.routes.draw do
 
   resources :users,  only: [:show, :edit, :update], shallow: true do
     resources :large_categories, only: [:index, :create, :edit, :update, :destroy], shallow:  true do
-      resources :small_categories
+      resources :small_categories do
+        resource :stars, only: [:create, :destroy]
+      end
     end
   end
 

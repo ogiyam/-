@@ -35,6 +35,7 @@ header{
 // border: 4mm ridge rgba(170, 50, 220, .6);
 }
 
+/* ドラッグ＆ドロップゴミ箱 */
 .trash-box{
   position: sticky;
   top: 500px;
@@ -42,7 +43,7 @@ header{
   margin-left: 80px;
 }
 
-
+/* 各ページ共通ボタン */
 .btn_design {
   font-size: 30px;
   width: 400px;
@@ -58,14 +59,19 @@ header{
   border-radius: 10px;
   }
 
-/* マウスオーバー時 */
+/* 各ページボタンマウスオーバー時 */
 .btn_design:hover {
   color: #ffffff;
   background-color: #000000;
   cursor: pointer;
  }
-
+ 
+/* トップページのカメレオン */
  .hover:hover{
   color: green;
   cursor: pointer;
+ }
+
+ .star{
+   text-decoration: none;
  }
