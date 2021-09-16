@@ -1,12 +1,12 @@
 <% if small_category.star_by?(small_category) %>
 
     <%= link_to small_category_stars_path(small_category), method: :delete, remote: true do %>
-     <p class="star">★</p>
+     <p class="star fas fa-star" style="color:yellow; text-shadow:0 0 10px #00f;"></p>
     <% end %>
 
     <% else %>
     <%= link_to small_category_stars_path(small_category), method: :post, remote: true do %>
-     <p class="no_star">☆</p>
+     <p class="no_star far fa-star"></p>
     <% end %>
 
 <% end %>

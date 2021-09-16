@@ -4,7 +4,7 @@
 
 
 
-      <%= form_with model:[@large_category, @small_category],　url: new_large_category_small_category_path, local:true do |f| %>
+      <%= form_with model:[@large_category, @small_category], url: large_category_small_categories_path, method: :post, local:true do |f| %>
 
          <%= render 'layouts/errors', bg: @small_category %>
 
@@ -25,19 +25,8 @@
 
 
 
-    <%= link_to '一覧へ戻る',  user_large_categories_path(@large_category), class: "btn btn-primary col-xs-12" %>
+    <%= link_to '一覧へ戻る',  large_category_small_categories_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
     <%= link_to 'show',  small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
-    <%= link_to 'edit',  edit_small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
-    <%= link_to 'delete',  small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
-
-
-<div class=".click2edit"><%= link_to 'edit',  edit_small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %></div>
-<!--一旦置いておく-->
-<!--<script>-->
-<!--$(document).ready(function() {-->
-<!--  $('#summernote').summernote();-->
-<!--});-->
-<!--</script>-->
 
 
 
@@ -62,27 +51,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ja-JP.js"></script>
 
-    <script text="text/javascript">
-    $(document).ready(function(){
-        var FIELD_NAME = "note";
-
-
-        var code = parent.Xrm.Page.getAttribute("note").getValue();
-        $('#summernote').summernote("code", code);
-
-        $('#summernote').on('summernote.blur', function() {
-            var code = $('#summernote').summernote("code");
-            parent.Xrm.Page.getAttribute("note").setValue(code);
-        });
-    });
-    </script>
-    <meta>
-    </head>
-
-    <body onfocusout="parent.setEmailRange();" style="overflow-wrap: break-word;">
-        <div id="summernote"></div>
-    </body>
-</html>
 
 
 

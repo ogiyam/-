@@ -7,6 +7,6 @@ class SmallCategory < ApplicationRecord
       stars.where(small_category_id: small_category.id).exists?
    end
 
-   validates :title, presence: true, length: { maximum: 30 }
+   validates :title, presence: true
    validates :note, presence: true
 end
