@@ -36,10 +36,11 @@ header{
 
 /* ドラッグ＆ドロップゴミ箱 */
 .trash-box{
+  position: -webkit-sticky;
   position: sticky;
-  top: 500px;
+  top: 7rem;
   text-align: left;
-  margin-left: 80px;
+ margin-left: 80px;
 }
 
 /* 各ページ共通ボタン */

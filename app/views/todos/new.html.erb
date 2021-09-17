@@ -1,8 +1,11 @@
-<div class="justify-content-center">
-    <div class="col text-center">
+<div class="justify-content">
+    <div class="mx-auto text-center">
+      
+      <div class="trash-box"><i class="fas fa-trash fa-7x" ></i></div>
+    
+      <i class="fab fa-suse fa-5x hover"></i>
+      <h3 style="padding-bottom:30px;">- まとめてポイlist -</h3>
 
-
-      <h3 style="padding:30px;">- まとめるリスト -</h3>
 
 
        <div id ="new-todo">
@@ -13,12 +16,6 @@
        <div id="new-todo-index">
         <%= render  "todos/index", todos: @todos %>
        </div>
-
-
-       <div class="trash-box"><i class="fas fa-trash fa-7x" ></i></div>
-
-
-      <%= link_to 'user/show', user_path(current_user), class: "btn btn-primary col-xs-12" %>
 
 
   </div>

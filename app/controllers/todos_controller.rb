@@ -18,20 +18,9 @@ class TodosController < ApplicationController
 	end
 
   def destroy
-  #   @todo = Todo.find(params[:id])
-  #    @todo.destroy
-  #       respond_to do |format|
-  #       format.html { redirect_to new_todo_path }
-  #       format.json { render json: { id: params[:id] } }
-  #       format.json {render :json => @todo}
-  #        redirect_to new_todo_path
-  #       end
-  #   end
-  #  end
-
     @todo = Todo.find(params[:id])
     @todo.destroy
-
+    flash[:notice]="タスクおつかれさまでした！"
   end
 
 

@@ -29,14 +29,14 @@
 
             <% if user_signed_in? %>
                 <nav class="navbar-nav mr-auto">
-                  <%= link_to image_tag('top-logo-header.png'), user_path(current_user), class:"header-title"  %>
+                  <%= link_to image_tag('top-logo-header.png'), user_path(current_user), class:"header-title" %>
+                  <i class="fab fa-suse fa-3x hover"></i>
                 </nav>
                 <nav class="navbar-nav ml-auto">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                  <%= link_to '使い方', about_path, class: "btn btn-primary col-xs-12" %>
-                  <%= link_to 'myデータベース', user_large_categories_path(@user, @large_category), class: "btn btn-primary col-xs-12" %>
-                  <%= link_to '検索する', search_large_categories_path, class: "btn btn-primary col-xs-12" %>
-                  <%= link_to 'まとめてポイlist', new_todo_path, class: "btn btn-primary col-xs-12" %>
+                  <%= link_to '使い方', about_path, class: "btn btn-dark col-xs-12" %>
+                  <%= link_to '検索する', search_large_categories_path, class: "btn btn-dark col-xs-12" %>
+                  <%= link_to 'まとめてポイlist', new_todo_path, class: "btn btn-dark col-xs-12" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-dark col-xs-12" %>
                 </nav>
             <% else %>
                 <nav class="navbar-nav mr-auto">
@@ -46,6 +46,10 @@
           </nav>
         </div>
       </header>
+      <p class="notice alert alert-danger"><%= notice %></p>
       <%= yield %>
+      <footer class="footer bg-info" style="hight:4rem;">
+      <div class="container">
+    <p class="text-center">Take it easy.</p>
     </body>
 </html>
