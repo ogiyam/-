@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update]
+
 
   def show
-    @user = current_user
     @user = User.find(params[:id])
   end
 
@@ -25,7 +27,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :image, :goal)
     end
 
-    def correct_user
+    def ensure_correct_user
       @user = User.find(params[:id])
        if @user.id != current_user.id
          redirect_to user_path(current_user)

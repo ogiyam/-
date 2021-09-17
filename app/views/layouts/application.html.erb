@@ -15,16 +15,9 @@
     <!-- summernoteの読み込み  -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-    <!--<script src="/public/js/lang/summernote-ja-JP.js"></script>-->
 
     <!-- FontAwesomeの読み込み  -->
     <script src="https://kit.fontawesome.com/91ca5c5bd0.js" crossorigin="anonymous"></script>
-
-     <!-- summernote（without bootstrap）の読み込み  -->
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>-->
-    <!--<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">-->
-    <!--<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>-->
-
   </head>
 
 
@@ -41,13 +34,6 @@
             <% if user_signed_in? %>
               <li>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-            <% else %>
-              <li>
-                <%= link_to "新規登録", new_user_registration_path %>
-              </li>
-              <li>
-                <%= link_to "ログイン", new_user_session_path %>
               </li>
             <% end %>
           </nav>

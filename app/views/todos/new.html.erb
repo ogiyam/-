@@ -3,7 +3,7 @@
 
 
       <h3 style="padding:30px;">- まとめるリスト -</h3>
-      
+
 
        <div id ="new-todo">
         <%= render  "todos/todo_form", todo: @todo %>
@@ -13,13 +13,12 @@
        <div id="new-todo-index">
         <%= render  "todos/index", todos: @todos %>
        </div>
-       
-       
-       <div class="trash-box"><i class="fas fa-trash fa-7x" ></i></div>
-      
-      
-      <%= link_to 'user/show', user_path(current_user), class: "btn btn-primary col-xs-12" %>
 
+
+       <div class="trash-box"><i class="fas fa-trash fa-7x" ></i></div>
+
+
+      <%= link_to 'user/show', user_path(current_user), class: "btn btn-primary col-xs-12" %>
 
 
   </div>

@@ -14,7 +14,6 @@
  *= require_self
  */
  @import "bootstrap";
- // @import "summernote-bs4";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
@@ -65,11 +64,10 @@ header{
   background-color: #000000;
   cursor: pointer;
  }
- 
+
 /* トップページのカメレオン */
  .hover:hover{
   color: green;
   cursor: pointer;
  }
 
- 
