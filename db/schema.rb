@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_114948) do
+ActiveRecord::Schema.define(version: 2021_09_16_060418) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,12 @@ ActiveRecord::Schema.define(version: 2021_09_13_114948) do
     t.integer "large_category_id", null: false
     t.string "title", null: false
     t.text "note", limit: 4294967295, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.integer "small_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

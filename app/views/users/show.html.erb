@@ -5,12 +5,18 @@
 
         <div style=font-size:40px;><%= @user.name %></div>
 
-        <%= link_to '大カテゴリ一覧', user_large_categories_path(@user, @large_category), class: "btn btn-primary col-xs-12" %>
+        <% if @user.image.attached? %>
+          <%= image_tag @user.image.variant(resize:'100x100') %>
+        <% else %>
+         <%= image_tag 'no_image.jpg' %>
+        <% end %>
 
-        <%= link_to '新規ノート', new_large_category_small_category_path(:large_category_id), class: "btn btn-primary col-xs-12" %>
+       <%= @user.goal %>
 
-        <%= link_to 'ToDo', new_todo_path, class: "btn btn-primary col-xs-12" %>
-
+       <%= link_to 'myデータベース', user_large_categories_path(@user, @large_category), class: "btn_design" %>
+       <%= link_to '検索する', search_large_categories_path, class: "btn_design" %>
+       <%= link_to 'まとめてポイlist', new_todo_path, class: "btn_design" %>
+       <%= link_to 'ユーザー編集', edit_user_path(current_user), class: "btn_design" %>
     </div>
 </div>
 

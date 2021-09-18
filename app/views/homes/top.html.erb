@@ -1,11 +1,15 @@
-<h1>homes#top</h1>
+<!--top-->
 
+<div class="justify-content" style="background-color: #ffffff;">
+    
 
-<div class="top-note_image">
+<div class="top-logo"></div>
+
+<div class="col-md-12 text-center" style="margin-top:-140px;">
+  <%= link_to 'ログイン', new_user_session_path, class:"btn_design" %>
+　<%= link_to '新規登録', new_user_registration_path, class:"btn_design" %>
 </div>
 
-   <div class="col-md-2">
-     <%= link_to 'Log in', new_user_session_path, class:"btn btn-primary btn-sm btn-block"  %>
-     <%= link_to 'Sign up', new_user_registration_path, class:"btn btn-success btn-sm btn-block" %>
+<i class="fab fa-suse fa-10x hover"></i>
 
-   </div>
+</div>

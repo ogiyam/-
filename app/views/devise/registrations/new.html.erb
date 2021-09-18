@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<div class="justify-content">
+<div class="col text-center">
+
+<h2><strong>新規登録</strong></h2>
 
 <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,3 +35,8 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+<i class="fab fa-suse fa-10x hover"></i>
+
+</div>
+</div>

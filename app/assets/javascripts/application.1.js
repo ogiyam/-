@@ -16,7 +16,6 @@
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 
@@ -27,14 +26,17 @@
 
 // ドラッグ＆ドロップ
 
-$(function() {
+function draggable_ini(){
+  console.log('draggable_ini');
   $('.task-list').draggable();
-    $(".trash-box").droppable({
+  $(".trash-box").droppable({
       accept: ".task-list",
       hoverClass: "move-trash",
       drop: function(e, ui){
         // デフォルトの動作をキャンセル
         e.preventDefault();
+        var delete_message = confirm("削除してもよろしいですか？");
+        if(delete_message == true){
 
           //ドロップされた要素を取得 jQueryオブジェクトからDOM要素を取り出す
           var delete_todo = ui.draggable[0];
@@ -57,5 +59,9 @@ $(function() {
             alert("エラー");
           })
         }
-    })
-  });
+      }
+  })
+}
+$(function() {
+   draggable_ini()
+})

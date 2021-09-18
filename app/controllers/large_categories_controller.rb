@@ -35,6 +35,10 @@ class LargeCategoriesController < ApplicationController
     @large_category.destroy
     redirect_to user_large_categories_path(current_user)
   end
+  
+  def search
+    @large_categories = LargeCategory.includes(:small_categories).references(:small_categories).search(params[:keyword])
+  end
 
   private
 

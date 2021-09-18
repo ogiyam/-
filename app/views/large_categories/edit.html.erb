@@ -5,7 +5,7 @@
         <% if @large_category.errors.any? %>
              <p class="err_head"><%= large_category.errors.count %> errors prohibited this category from being saved:</p>
              <ul class="err_list">
-           　  <% large_category.errors.full_messages.each do |messages| %>
+               <% large_category.errors.full_messages.each do |messages| %>
                <li><%= messages %></li>
               <% end %>
              </ul>

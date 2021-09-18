@@ -2,12 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top-note_image{
+.top-logo{
   height: 100vh;
-  // width: %;
-  background-image: url('top-note_image.jpg');
+  background-image: url('top-logo(2).png');
   background-position: center;
   background-repeat: no-repeat;
 	background-size: 40% auto;
-
+	margin-top: -200px;
 }
+
+.top-logo-bottom{
+  height: 10vh;
+  background-image: url('top-logo-bottom.png');
+  bottom: 0;
+}
+

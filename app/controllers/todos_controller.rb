@@ -7,20 +7,21 @@ class TodosController < ApplicationController
 	end
 
 	def create
-	 @todos = Todo.all
-	 @todo = Todo.new(todo_params)
-		if @todo.save
-			redirect_to new_todo_path, notice: "「あとでまとめる」が追加されました"
+	 @todos = Todo.all.order(created_at: :desc)
+	 @todo = Todo.new
+	 todo = Todo.new(todo_params)
+		if todo.save
+
 		else
 			render :new
 		end
 	end
 
-	 def destroy
-		@todo = Todo.find(params[:id])
+  def destroy
+    @todo = Todo.find(params[:id])
     @todo.destroy
-			redirect_to new_todo_path, notice: "まとめ終了"
- 　　end
+    flash[:notice]="タスクおつかれさまでした！"
+  end
 
 
 	private
@@ -29,7 +30,9 @@ class TodosController < ApplicationController
 		params.require(:todo).permit(:task)
 	end
 
- end
+
+end
+
 
 
 
