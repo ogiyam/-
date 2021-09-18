@@ -20,7 +20,7 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-    flash[:notice]="タスクおつかれさまでした！"
+    flash[:notice]="おつかれさまでした！"
   end
 
 

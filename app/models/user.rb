@@ -6,13 +6,18 @@ class User < ApplicationRecord
   has_many :large_categories, dependent: :destroy
   has_many :todos, dependent: :destroy
 
-  has_one_attached :image
 
   validates :email, presence: true, uniqueness: true
   validates :name, presence: true, uniqueness: true
 
+
+  has_one_attached :image
+  validate :image_type
+
+  private
+
   def image_type
-   if !image.blob.content_type.in?(%('image/jpeg image/png'))
+   if !image.blob.content_type.in?(%('image/jpeg image/jpg image/png'))
     image.purge
     errors.add(:image, 'はJPEGまたはPNG形式を選択してアップロードしてください')
    end
