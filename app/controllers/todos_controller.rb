@@ -2,12 +2,12 @@ class TodosController < ApplicationController
 	before_action :authenticate_user!
 
 	def new
-	 @todos = Todo.all.order(created_at: :desc)
+	 @todos = Todo.where(user_id: current_user.id).order(created_at: :desc)
 	 @todo = Todo.new
 	end
 
 	def create
-	 @todos = Todo.all.order(created_at: :desc)
+	 @todos = Todo.where(user_id: current_user.id).order(created_at: :desc)
 	 @todo = Todo.new
 	 todo = Todo.new(todo_params)
 		if todo.save
