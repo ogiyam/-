@@ -11,16 +11,16 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
 
-#   has_one_attached :image
-#   validate :image_type
+  has_one_attached :image
+  # validate :image_type
 
-#   private
+  private
 
-#   def image_type
-#   if !image.blob.content_type.in?(%('image/jpeg image/jpg image/png'))
-#     image.purge
-#     errors.add(:image, 'はJPEGまたはPNG形式を選択してアップロードしてください')
-#   end
-#   end
+  def image_type
+  if !image.blob.content_type.in?(%('image/jpeg image/png'))
+    image.purge
+    errors.add(:image, 'はJPEGまたはPNG形式を選択してアップロードしてください')
+  end
+  end
 
 end

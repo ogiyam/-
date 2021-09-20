@@ -32,6 +32,7 @@
                   <%= link_to image_tag('top-logo-header.png'), user_path(current_user), class:"header-title" %>
                 </nav>
                 <nav class="navbar-nav ml-auto">
+                  <%= link_to 'Home', user_path(current_user), class: "btn btn-dark col-xs-12" %>
                   <%= link_to '使い方', about_path, class: "btn btn-dark col-xs-12" %>
                   <%= link_to '検索する', search_large_categories_path, class: "btn btn-dark col-xs-12" %>
                   <%= link_to 'まとめてポイlist', new_todo_path, class: "btn btn-dark col-xs-12" %>
