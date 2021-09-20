@@ -12,14 +12,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    ActiveRecord::Base.transaction do
+    # ActiveRecord::Base.transaction do
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "ユーザー情報を更新しました"
     else
       flash.now[:error] = @user.errors.full_messages
       render "edit"
-    end
+    # end
     end
   end
 

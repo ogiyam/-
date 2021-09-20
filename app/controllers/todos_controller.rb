@@ -3,17 +3,16 @@ class TodosController < ApplicationController
 	before_action :ensure_correct_user, only: [:destroy]
 
 	def new
-	  @todos = Todo.all.order(created_at: :desc)
+	  @todos = current_user.todos.order(created_at: :desc)
 	  @todo = Todo.new
 	end
 
 	def create
-	  @todos = Todo.all.order(created_at: :desc)
+	  @todos = current_user.todos.order(created_at: :desc)
 	  @todo = Todo.new
-	 todo = Todo.new(todo_params)
-		if todo.save
-			render :new
-		end
+		todo = Todo.new(todo_params)
+		todo.user = current_user
+		todo.save
 	end
 
   def destroy

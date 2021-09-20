@@ -20,8 +20,8 @@
         <i class="fab fa-suse fa-7x hover"></i>
 
 
-              <%= link_to '新規順', large_category_small_categories_path(@large_category), class: "btn btn-dark col-xs-12" %>
-              <%= link_to 'スター付き', search_star_small_categories_path(@small_category), class: "btn btn-dark col-xs-12" %>
+              <%= link_to '新規順', large_category_small_categories_path(@large_category, order: "newey"), class: "btn btn-dark col-xs-12" %>
+              <%= link_to 'スター付き', large_category_small_categories_path(@large_category, order: "star"), class: "btn btn-dark col-xs-12" %>
 
               <% @small_categories.each do |small_category| %>
 

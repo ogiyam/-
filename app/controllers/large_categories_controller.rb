@@ -36,7 +36,7 @@ class LargeCategoriesController < ApplicationController
   end
 
   def search
-    @large_categories = LargeCategory.includes(:small_categories).references(:small_categories).search(params[:keyword])
+    @large_categories = LargeCategory.includes(:small_categories).where(user: current_user).references(:small_categories).search(params[:keyword])
   end
 
   private

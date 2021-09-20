@@ -23,13 +23,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # resources :small_categories do
-  #   collection do
-  #     get :search_star
-  #   end
-  # end
-
-
    resources :todos, only: [:new, :create, :destroy]
 
    resources :genres, only: [:index, :create, :edit, :update]
