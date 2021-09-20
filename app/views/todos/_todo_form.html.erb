@@ -1,0 +1,10 @@
+   <%= form_with model: @todo, remote: true do |f| %>
+
+    <%= render 'layouts/errors', bg: @todo %>
+
+      <div class="text_area">
+         <%= f.text_area :task, size: "45x3" %>
+      </div>
+     <%= f.submit '新規作成', class: "btn btn-dark col-xs-12" %>
+
+   <% end %>

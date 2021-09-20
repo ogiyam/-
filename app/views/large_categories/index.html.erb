@@ -1,16 +1,69 @@
-<h1>LargeCategory#index</h1>
+<h1>myデータベース</h1>
+
+<div class="container-fluid">
+  <div class="row">
+
+
+    <div class="col-md-4">
+    	<i class="fab fa-suse fa-10x hover"></i>
+       <h3>New</h3>
+
+       <%= form_with model: @large_category, url: user_large_categories_path, local:true do |f| %>
+
+        <%= render 'layouts/errors', bg: @large_category %>
+
+
+         <div class="form-inline mb-3 text-right">
+            <span><%= f.label :genre_id, "ジャンル" %></span>
+            <span><%= f.collection_select :genre_id, Genre.all, :id, :name %></span>
+          </div>
+
+          <div class="text_field">
+             <%= f.label :problem %><br>
+             <%= f.text_field :problem %><br>
+          </div>
+
+          <div class="text_area">
+             <%= f.label :solution  %><br>
+             <%= f.text_area :solution %><br>
+          </div>
+         <%= f.submit '新規作成', class: "btn btn-primary col-xs-12" %>
+         <%= link_to 'ジャンル一覧', genres_path(@genre,@large_category), class: "btn btn-primary col-xs-12" %>
+        <% end %>
+    </div>
 
 
 
-<div class="card" style="width: 18rem;">
-  <div class="card-header">
-    <%= large_category.genre.name %>
+
+	  <div class="col-md-5 offset-md-1">
+	  	
+	  	<!--検索フォーム-->
+	  	<%= form_with url: search_large_categories_path, local: true, method: :get do |f| %>
+		  <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
+		  <%= f.submit "検索" %>
+		　<% end %>
+			  	
+			  	
+
+			<% @large_categories.each do |large_category| %>
+
+				<div class="card shadow-lg" style="width:30rem; margin:20px;">
+				  <div class="card-header" >
+				     <%= large_category.genre.name %>
+				     <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>
+				     <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
+				     <%= link_to '', large_category_path(large_category), method: :delete, data: {confirm: "削除しますか？"}, class: "fas fa-trash" %>
+				  </div>
+
+
+          <ul class="list-group list-group-flush">
+           <li class="list-group-item"><i class="fas fa-exclamation-circle"></i><%= large_category.problem %></li>
+           <li class="list-group-item"><i class="far fa-lightbulb"></i><%= large_category.solution %></li>
+          </ul>
+        </div>
+	    <% end %>
+	  </div>
+
+
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= large_category.problem %></li>
-    <li class="list-group-item"><%= large_category.solution %></li>
-  </ul>
 </div>
-
-
-

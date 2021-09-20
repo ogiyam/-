@@ -1,7 +1,12 @@
 class SmallCategory < ApplicationRecord
 
-   has_many :large_categories, dependent: :destroy
+   belongs_to :large_category
+   has_many :stars, dependent: :destroy
 
-   validates :problem, presence: true, length: { maximum: 30 }
-   validates :solution, presence: true, length: { maximum: 30 }
+   def star_by?(small_category)
+      stars.where(small_category_id: small_category.id).exists?
+   end
+
+   validates :title, presence: true
+   validates :note, presence: true
 end

@@ -1,0 +1,28 @@
+<div class="justify-content">
+     <div class="mx-auto text-center">
+
+       <h3>New</h3>
+
+          <%= form_with model: @genre, local:true do |f| %>
+
+              <%= render 'layouts/errors', bg: @genre %>
+
+              <div class="text_area" style="margin:0 auto;">
+                 <p>Genre name</p>
+                 <%= f.text_area :name %><br>
+         　　    　<%= f.submit'新規作成', class: "btn btn-dark col-sm-1" %>
+         　　　</div>
+      　   <% end %>
+
+
+
+          <% @genres.each do |genre| %>
+            <div class="card" style="width:45%; margin:15px auto;">
+              <span class="badge badge-dark"><%= l genre.created_at, format: :short %></span>
+              <%= genre.name %>
+              <%= link_to '', edit_genre_path(genre), class: "fas fa-edit" %>
+            </div>
+           <% end %>
+
+    </div>
+</div>

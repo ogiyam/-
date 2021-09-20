@@ -1,2 +1,47 @@
-<h1>SmallCategory#index</h1>
-<p>Find me in app/views/small_category/index.html.erb</p>
+<div class="container-fluid">
+  <div class="row">
+
+
+      <div class="col-md-4">
+        <h1>note</h1>
+
+        <div class="card shadow-lg" style="width:25rem; margin:20px">
+            <div class="card-header">
+             <%= @large_category.genre.name %>
+            </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= @large_category.problem %></li>
+            <li class="list-group-item"><%= @large_category.solution %></li>
+          </ul>
+          <%= link_to '新規ノート', new_large_category_small_category_path, class: "btn btn-dark col-xs-12" %>
+        </div>
+
+        <i class="fab fa-suse fa-10x hover"></i>
+        
+      </div>
+
+
+      <div class="col-md-6 offset-md-1">
+
+            <% @small_categories.each do |small_category| %>
+
+              <div class="card text-center" style="width:60%; margin:10px auto;">
+
+                <div class="card-header">
+                  <span class="badge badge-dark"><%= l small_category.created_at, format: :short %></span>
+                </div>
+
+
+
+                <div class="card-body">
+                   <%= link_to small_category.title, small_category_path(small_category) %>
+                    <div id="star-btn<%= small_category.id %>" class="float-right">
+                     <%= render "stars/star-btn", small_category: small_category %>
+                    </div>
+                </div>
+              </div>
+            <% end %>
+      </div>
+
+    </div>
+</div>

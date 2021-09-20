@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do
@@ -66,9 +67,15 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'kaminari','~> 1.2.1'
-#gem 'summernote-rails', '~> 0.8.10.0'
+# gem 'summernote-rails', '~> 0.8.10.0'
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end

@@ -4,17 +4,16 @@ class LargeCategoriesController < ApplicationController
 
 
   def index
-    @large_categories = LargeCategory.all
+    @large_categories = LargeCategory.where(user_id: current_user.id)
     @large_category = LargeCategory.new
   end
 
   def create
-    @large_category = LargeCategory.new(large_category_params)
-    @large_category.user_id = current_user.id
+    @large_category = current_user.large_categories.new(large_category_params)
     if @large_category.save
-      redirect_to large_categories_path(@large_category), notice: "大カテゴリーを追加しました"
+      redirect_to user_large_categories_path, notice: "大カテゴリーを追加しました"
     else
-      @large_categories = LargeCategory.all
+      @large_categories = LargeCategory.where(user_id: current_user.id)
       render 'index'
     end
   end
@@ -23,29 +22,34 @@ class LargeCategoriesController < ApplicationController
   end
 
   def update
-    if @large_categories.update(large_category_params)
-      redirect_to large_categories_path(@large_category), notice: "大カテゴリーを更新しました"
+    if @large_category.update(large_category_params)
+      redirect_to user_large_categories_path(current_user), notice: "大カテゴリーを更新しました"
     else
       render "edit"
     end
   end
 
-  def destory
+  def destroy
+    @large_category = LargeCategory.find(params[:id])
     @large_category.destroy
-    redirect_to large_categories_path
+    redirect_to user_large_categories_path(current_user)
   end
 
+  def search
+    @large_categories = LargeCategory.includes(:small_categories).references(:small_categories).search(params[:keyword])
+  end
 
   private
 
   def large_category_params
-    params.require(:large_category).permit(:problem, :solution)
+    params.require(:large_category).permit(:problem, :solution, :genre_id)
   end
 
   def ensure_correct_user
-    @large_categories = LargeCategory.find(params[:id])
-    unless @large_categories.user == current_user
-      redirect_to large_categories_path
+    @large_category = LargeCategory.find(params[:id])
+    unless @large_category.user == current_user
+      redirect_to user_large_categories_path
     end
   end
 end
+

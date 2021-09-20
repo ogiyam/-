@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_09_150738) do
+ActiveRecord::Schema.define(version: 2021_09_16_060418) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,18 +33,32 @@ ActiveRecord::Schema.define(version: 2021_09_09_150738) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.integer "large_category_id"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "large_categories", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "problem", null: false
     t.string "solution", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "genre_id"
   end
 
   create_table "small_categories", force: :cascade do |t|
     t.integer "large_category_id", null: false
     t.string "title", null: false
     t.text "note", limit: 4294967295, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.integer "small_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -14,6 +14,67 @@
  *= require_self
  */
  @import "bootstrap";
- @import "summernote-bs4";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
+
+
+
+.top-logo{
+  height: 100vh;
+  background-image: url('top-logo(2).png');
+  background-position: center;
+  background-repeat: no-repeat;
+	background-size: 40% auto;
+	margin-top: -200px;
+}
+
+body{
+  width: 100%;
+  background-color: #17a2b8;
+}
+
+header{
+  border-bottom: 2rem solid #FFFF00;
+  display: inline-block;
+  padding: 2rem;
+  position: relative;
+}
+
+/* ドラッグ＆ドロップゴミ箱 */
+.trash-box{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7rem;
+  text-align: left;
+  margin-left: 80px;
+}
+
+/* 各ページ共通ボタン */
+.btn_design {
+  font-size: 30px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  text-align: center;
+  font-weight: bold;
+  padding: 20px 10px;
+  background-color: #ffffff;
+  color: #000000;
+  border: #000000 solid 3px;
+  border-radius: 10px;
+  }
+
+/* 各ページボタンマウスオーバー時 */
+.btn_design:hover {
+  color: #ffffff;
+  background-color: #000000;
+  cursor: pointer;
+ }
+
+/* カメレオン */
+ .hover:hover{
+  color: green;
+  cursor: pointer;
+ }
+
