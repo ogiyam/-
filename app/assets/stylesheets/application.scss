@@ -21,7 +21,7 @@
 
 .top-logo{
   height: 100vh;
-  background-image: url('top-logo(2).png');
+  background-image: url('top-logo.png');
   background-position: center;
   background-repeat: no-repeat;
 	background-size: 40% auto;
@@ -78,3 +78,7 @@ header{
   cursor: pointer;
  }
 
+.link{
+  text-decoration: none;
+  color: white;
+}

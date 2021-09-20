@@ -1,10 +1,9 @@
-<h1>myデータベース</h1>
-
-<div class="container-fluid">
+<div class="container">
   <div class="row">
 
 
-    <div class="col-md-4">
+    <div class="col-md-5">
+    	<h1>myデータベース</h1>
     	<i class="fab fa-suse fa-10x hover"></i>
        <h3>New</h3>
 
@@ -19,35 +18,28 @@
           </div>
 
           <div class="text_field">
-             <%= f.label :problem %><br>
+             <%= f.label :problem, "問題・原因" %><br>
              <%= f.text_field :problem %><br>
           </div>
 
           <div class="text_area">
-             <%= f.label :solution  %><br>
+             <%= f.label :solution, "解決・詳細"  %><br>
              <%= f.text_area :solution %><br>
           </div>
-         <%= f.submit '新規作成', class: "btn btn-primary col-xs-12" %>
-         <%= link_to 'ジャンル一覧', genres_path(@genre,@large_category), class: "btn btn-primary col-xs-12" %>
+         <%= f.submit '新規作成', class: "btn btn-dark col-xs-12" %>
+         <%= link_to 'ジャンル一覧', genres_path(@genre,@large_category), class: "btn btn-dark col-xs-12" %>
         <% end %>
     </div>
 
 
 
 
-	  <div class="col-md-5 offset-md-1">
-	  	
-	  	<!--検索フォーム-->
-	  	<%= form_with url: search_large_categories_path, local: true, method: :get do |f| %>
-		  <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
-		  <%= f.submit "検索" %>
-		　<% end %>
-			  	
-			  	
+	  <div class="col-md-7">
+
 
 			<% @large_categories.each do |large_category| %>
 
-				<div class="card shadow-lg" style="width:30rem; margin:20px;">
+				<div class="card shadow-lg" style="width:35rem; margin:20px;">
 				  <div class="card-header" >
 				     <%= large_category.genre.name %>
 				     <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>

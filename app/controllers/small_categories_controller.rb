@@ -47,6 +47,11 @@ class SmallCategoriesController < ApplicationController
     @small_category.destroy
     redirect_to large_category_small_categories_path(@small_category.large_category_id)
   end
+  
+  # def search_star
+  #   @large_category = LargeCategory.find(params[:large_category_id])
+  #   @small_categories = SmallCategory.where(large_category_id: @large_category.id).includes(:stars).sort {|a,b| b.stars.size <=> a.stars.size}
+  # end
 
   private
 
