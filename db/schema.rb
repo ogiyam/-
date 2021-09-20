@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_16_060418) do
   end
 
   create_table "genres", force: :cascade do |t|
+    t.integer "large_category_id"
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

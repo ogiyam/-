@@ -4,7 +4,7 @@ class SmallCategoriesController < ApplicationController
 
   def index
    @large_category = LargeCategory.find(params[:large_category_id])
-   @small_categories = SmallCategory.all
+   @small_categories = SmallCategory.where(large_category_id: @large_category.id)
   end
 
   def new
@@ -15,11 +15,10 @@ class SmallCategoriesController < ApplicationController
   def create
     @large_category = LargeCategory.find(params[:large_category_id])
     @small_category = SmallCategory.new(small_category_params)
-    @large_category.user_id = current_user.id
     if @small_category.save
       redirect_to large_category_small_categories_path, notice: "ノートを追加しました"
     else
-      @small_categories = SmallCategory.all
+      @small_categories = SmallCategory.where(large_category_id: @large_category.id)
       render 'index'
     end
   end

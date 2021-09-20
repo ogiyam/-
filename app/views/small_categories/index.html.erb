@@ -1,12 +1,11 @@
-<h1>SmallCategory#index</h1>
-
-<div class="justify-content">
-    <div class="row">
+<div class="container-fluid">
+  <div class="row">
 
 
-      <div class="col-sm-4">
+      <div class="col-md-4">
+        <h1>note</h1>
 
-        <div class="card shadow-lg" style="width: 30rem;">
+        <div class="card shadow-lg" style="width:25rem; margin:20px">
             <div class="card-header">
              <%= @large_category.genre.name %>
             </div>
@@ -14,35 +13,35 @@
             <li class="list-group-item"><%= @large_category.problem %></li>
             <li class="list-group-item"><%= @large_category.solution %></li>
           </ul>
+          <%= link_to '新規ノート', new_large_category_small_category_path, class: "btn btn-dark col-xs-12" %>
         </div>
 
-        <%= link_to '新規ノート', new_large_category_small_category_path, class: "btn btn-primary col-xs-12" %>
-
+        <i class="fab fa-suse fa-10x hover"></i>
+        
       </div>
 
 
-
-        <div class="col-sm-6 offset-sm-1 ">
+      <div class="col-md-6 offset-md-1">
 
             <% @small_categories.each do |small_category| %>
 
-              <div class="card text-center" style="width: 30rem; ">
-                <div class="card-header" >
-                  <%= l small_category.created_at, format: :short %>
-                  <div id="star-btn<%= small_category.id %>" class="text-right" >
-                    <%= render "stars/star-btn", small_category: small_category %>
-                  </div>
+              <div class="card text-center" style="width:60%; margin:10px auto;">
+
+                <div class="card-header">
+                  <span class="badge badge-dark"><%= l small_category.created_at, format: :short %></span>
                 </div>
 
 
-                <ul class="list-group list-group-flush">
-                 <li class="list-group-item"><%= link_to small_category.title, small_category_path(small_category) %></li>
-                </ul>
+
+                <div class="card-body">
+                   <%= link_to small_category.title, small_category_path(small_category) %>
+                    <div id="star-btn<%= small_category.id %>" class="float-right">
+                     <%= render "stars/star-btn", small_category: small_category %>
+                    </div>
+                </div>
               </div>
-
             <% end %>
-
-        </div>
+      </div>
 
     </div>
 </div>

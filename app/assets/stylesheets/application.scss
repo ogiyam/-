@@ -19,7 +19,14 @@
 
 
 
-
+.top-logo{
+  height: 100vh;
+  background-image: url('top-logo(2).png');
+  background-position: center;
+  background-repeat: no-repeat;
+	background-size: 40% auto;
+	margin-top: -200px;
+}
 
 body{
   width: 100%;
@@ -31,7 +38,6 @@ header{
   display: inline-block;
   padding: 2rem;
   position: relative;
-// border: 4mm ridge rgba(170, 50, 220, .6);
 }
 
 /* ドラッグ＆ドロップゴミ箱 */
@@ -40,7 +46,7 @@ header{
   position: sticky;
   top: 7rem;
   text-align: left;
- margin-left: 80px;
+  margin-left: 80px;
 }
 
 /* 各ページ共通ボタン */
@@ -66,7 +72,7 @@ header{
   cursor: pointer;
  }
 
-/* トップページのカメレオン */
+/* カメレオン */
  .hover:hover{
   color: green;
   cursor: pointer;
