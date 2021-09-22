@@ -1,12 +1,12 @@
-<h1>Genre#edit</h1>
-
 <div class="justify-content-center">
-    <div class="col text-center">
+    <div class="mx-auto text-center">
 
-      <div class="col-md-3">
-         <h3>Edit</h3>
+      <div class="col-md-12">
 
-             <%= form_with model: @genre, local:true do |f| %>
+        <h5>管理者画面</h5>
+        <h1>ジャンル編集</h1>
+
+             <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch, local:true do |f| %>
 
              <%= render 'layouts/errors', bg: @genre %>
 

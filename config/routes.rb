@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  devise_for :users
+  
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+  
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
 
 
   root to: 'homes#top'
@@ -23,8 +30,13 @@ Rails.application.routes.draw do
     end
   end
 
-   resources :todos, only: [:new, :create, :destroy]
 
-   resources :genres, only: [:index, :create, :edit, :update]
+  resources :todos, only: [:new, :create, :destroy]
+
+
+  namespace :admin do
+    resources :genres, only: [:index, :create, :edit, :update]
+  end
+
 
 end
