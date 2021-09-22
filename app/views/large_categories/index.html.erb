@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
 
 
-    <div class="col-md-5 border border-5 border-white shadow-lg">
+    <div class="col-lg-5 border border-white shadow-lg ">
     	<h1>myデータベース</h1>
     	<i class="fab fa-suse fa-10x hover"></i>
        <h3>New</h3>
@@ -19,27 +19,27 @@
 
           <div class="text_field">
              <%= f.label :problem, "問題・原因" %><br>
-             <%= f.text_field :problem, size: "40"  %><br>
+             <%= f.text_field :problem, size: "40", class: "form-control" %><br>
           </div>
 
           <div class="text_area">
              <%= f.label :solution, "解決・詳細"  %><br>
-             <%= f.text_area :solution, size: "40"  %><br>
+             <%= f.text_area :solution, size: "40", class: "form-control"  %><br>
           </div>
          <%= f.submit '新規作成', class: "btn btn-dark col-xs-12" %>
-         <%= link_to 'ジャンル一覧', genres_path(@genre,@large_category), class: "btn btn-dark col-xs-12" %>
+
         <% end %>
     </div>
 
 
 
 
-	  <div class="col-md-7">
+	  <div class="col-lg-7 mx-auto">
 
 
 			<% @large_categories.each do |large_category| %>
 
-				<div class="card shadow-lg" style="width:35rem; margin:10px auto;">
+				<div class="card shadow-lg" style="width:97%; margin:10px;">
 				  <div class="card-header" >
 				     <%= large_category.genre.name %>
 				     <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>
