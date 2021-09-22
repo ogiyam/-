@@ -25,6 +25,7 @@ class SmallCategoriesController < ApplicationController
     if @small_category.save
       redirect_to large_category_small_categories_path, notice: "ノートを追加しました"
     else
+      flash.now[:notice]="エラーが発生しました"
       @small_categories = SmallCategory.where(large_category_id: @large_category.id)
       render 'index'
     end

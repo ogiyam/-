@@ -1,10 +1,12 @@
+<!--共通エラーメッセージ-->
       <% if bg.errors.any? %>
-       <p class="err_head"><%= bg.errors.count %> errors prohibited this category from being saved:</p>
-       <ul class="err_list">
+      <i class="fas fa-exclamation-circle fa-2x text-center"></i>
+       <p class="err_head" style="font-size:20px;"><%= bg.errors.count %> 件のエラーが発生しました:</p>
+       <p class="err_list">
      　  <% bg.errors.full_messages.each do |messages| %>
-         <li><%= messages %></li>
+         <p>- <%= messages %> -</p>
         <% end %>
-       </ul>
+       </p>
       <% end %>
 
-   
+

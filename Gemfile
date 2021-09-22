@@ -75,6 +75,7 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 gem 'dotenv-rails'
+gem 'rails-i18n', '~> 5.1' 
 
 group :production do
   gem 'mysql2'

@@ -3,3 +3,21 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%Y/%m/%d"
+
+ja:
+  activerecord:
+    attributes:
+      large_category:
+        problem: 「問題・原因」 欄
+        solution: 「解決・詳細」 欄
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+ja:
+  activerecord:
+    attributes:
+      genre:
+        name: ジャンル名
+
