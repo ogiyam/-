@@ -6,7 +6,7 @@ class SmallCategoriesController < ApplicationController
     @large_category = LargeCategory.find(params[:large_category_id])
     @small_categories = SmallCategory.where(large_category_id: @large_category.id)
     if params[:order] != nil
-      if params[:order] == 'newly' 
+      if params[:order] == 'newly'
         @small_categories = @small_categories.order(created_at: :desc)
       elsif params[:order] == 'star'
         @small_categories = @small_categories.includes(:stars).order("stars.small_category_id desc, small_categories.created_at desc")

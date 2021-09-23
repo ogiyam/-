@@ -3,13 +3,13 @@
 
     <div class="col-lg-5">
       <div id="large_category__index" class="border border-white shadow-lg" style="padding:10px;">
-    	 <h1>myデータベース</h1>
-    	 <i class="fab fa-suse fa-10x hover"></i>
+    	  <h1>myデータベース</h1>
+    	  <i class="fab fa-suse fa-10x hover"></i>
 
   <!--Newフォーム-->
-       <h3>New</h3>
+        <h3>New</h3>
 
-       <%= form_with model: @large_category, url: user_large_categories_path, local:true do |f| %>
+        <%= form_with model: @large_category, url: user_large_categories_path, local:true do |f| %>
 
         <%= render 'layouts/errors', bg: @large_category %>
 
@@ -43,13 +43,16 @@
 			<% @large_categories.each do |large_category| %>
 
 				<div class="card shadow-lg mx-auto" style="width:100%; margin:15px;">
-				  <div class="card-header" >
-				     <%= large_category.genre.name %>
-				     <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>
+				  <div class="card-header">
+				     <strong><%= large_category.genre.name %></strong>
 				     <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
 				     <div class="fas fa-trash" data-toggle="modal" data-target="#large_category-Modal"></div>
-				  </div>
 
+
+				  <div class="float-right">
+             <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open fa-2x" %>
+          </div>
+          </div>
 
           <ul class="list-group list-group-flush">
            <li class="list-group-item"><i class="fas fa-exclamation-circle"></i><%= large_category.problem %></li>
@@ -80,6 +83,3 @@
 
   </div>
 </div>
-
-
-
