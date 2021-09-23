@@ -24,21 +24,44 @@
 
 
 
-// summernote
-$(document).ready(function() {
-  $('#summernote').summernote({
-  height:500,
-  fontNames:["YuGothic","Yu Gothic","Hiragino Kaku Gothic Pro","Meiryo","sans-serif","Arial","Arial Black","Comic Sans MS","Courier New","Helvetica Neue","Helvetica","Impact","Lucida Grande","Tahoma","Times New Roman","Verdana"],
-  lang:"ja-JP"});
-  
-  var edit = function() {
-  $('.click2edit').summernote({focus: true});
-  };
+// ドラッグ＆ドロップ
 
-  var save = function() {
-  var markup = $('.click2edit').summernote('code');
-  $('.click2edit').summernote('destroy');
-  };
-  
-  });
+function draggable_ini(){
+  console.log('draggable_ini');
+  $('.task-list').draggable();
+  $(".trash-box").droppable({
+      accept: ".task-list",
+      hoverClass: "move-trash",
+      drop: function(e, ui){
+        // デフォルトの動作をキャンセル
+        e.preventDefault();
+        var delete_message = confirm("削除してもよろしいですか？");
+        if(delete_message == true){
 
+          //ドロップされた要素を取得 jQueryオブジェクトからDOM要素を取り出す
+          var delete_todo = ui.draggable[0];
+          //jQueryのdata()で属性を取得(削除対象のid)
+          var delete_ID = ui.draggable.data("todo");
+          var delete_url = "/todos/" + delete_ID;
+
+          $.ajax({
+            url: delete_url,
+            type: "POST",
+            data: {id: delete_ID, "_method": "DELETE"},
+            dataType: "json"
+          })
+
+          .done(function(data){
+            delete_todo.remove();
+            location.reload();
+          })
+          .fail(function(){
+            alert("エラー");
+          })
+        }
+      }
+  })
+}
+$(function() {
+   draggable_ini()
+})

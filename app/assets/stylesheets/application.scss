@@ -81,11 +81,17 @@ header{
 
 /* カメレオン */
  .hover:hover{
-  color: green;
+  color: lightseagreen;
   cursor: pointer;
  }
 
 .link{
   text-decoration: none;
   color: white;
+}
+
+#large_category__index{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 7.5rem;
 }

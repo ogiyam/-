@@ -1,8 +1,9 @@
-<div class="justify-content">
-     <div class="mx-auto text-center">
+　<div class="justify-content">
+    <div class="mx-auto text-center">
 
 
 　　　　<%= link_to 'エラーカテゴリーへ戻る', user_large_categories_path(@large_category), class: "link far fa-arrow-alt-circle-left" %>
+
 
         <h1>- note -</h1>
 
@@ -16,23 +17,19 @@
           </ul>
           <%= link_to '新規ノート', new_large_category_small_category_path, class: "btn btn-dark col-xs-12" %>
         </div>
-
-        <i class="fab fa-suse fa-7x hover"></i>
-
-
-              <%= link_to '新規順', large_category_small_categories_path(@large_category, order: "newey"), class: "btn btn-dark col-xs-12" %>
-              <%= link_to 'スター付き', large_category_small_categories_path(@large_category, order: "star"), class: "btn btn-dark col-xs-12" %>
+        
+        
+<!--note一覧-->
+        <i class="fab fa-suse fa-7x hover"></i><br>
+        <%= link_to '新規順', large_category_small_categories_path(@large_category, order: "newly"), class: "btn btn-dark col-xs-12" %>
+      　<%= link_to 'スター付き', large_category_small_categories_path(@large_category, order: "star"), class: "btn btn-dark col-xs-12" %>
 
               <% @small_categories.each do |small_category| %>
 
                 <div class="card text-center" style="width:70%; margin:10px auto;">
-
                   <div class="card-header">
                     <span class="badge badge-dark"><%= l small_category.created_at, format: :short %></span>
                   </div>
-
-
-
                   <div class="card-body">
                      <%= link_to small_category.title, small_category_path(small_category) %>
                       <div id="star-btn<%= small_category.id %>" class="float-right">
@@ -42,8 +39,5 @@
                 </div>
               <% end %>
 
-
-
-
-    </div>
-</div>
+  　</div>
+　</div>

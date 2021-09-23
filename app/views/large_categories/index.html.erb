@@ -1,10 +1,12 @@
 <div class="container">
-  <div class="row padding:0 auto">
+  <div class="row">
 
+    <div class="col-lg-5">
+      <div id="large_category__index" class="border border-white shadow-lg" style="padding:10px;">
+    	 <h1>myデータベース</h1>
+    	 <i class="fab fa-suse fa-10x hover"></i>
 
-    <div class="col-lg-5 border border-white shadow-lg">
-    	<h1>myデータベース</h1>
-    	<i class="fab fa-suse fa-10x hover"></i>
+  <!--Newフォーム-->
        <h3>New</h3>
 
        <%= form_with model: @large_category, url: user_large_categories_path, local:true do |f| %>
@@ -29,11 +31,12 @@
          <%= f.submit '新規作成', class: "btn btn-dark col-xs-12" %>
 
         <% end %>
+      </div>
     </div>
 
 
 
-
+<!--カテゴリー一覧-->
 	  <div class="col-lg-7">
 
 
@@ -54,7 +57,7 @@
           </ul>
         </div>
 
-<!--モーダル-->
+<!--削除確認モーダル-->
         <div class="modal fade" id="large_category-Modal"  role="dialog" aria-labelledby="basicModal" aria-hidden="true">
           <div class="modal-dialog">
            <div class="modal-content">
@@ -72,6 +75,7 @@
           </div>
         </div>
 	    <% end %>
+	    <%= paginate @large_categories %>
 	  </div>
 
   </div>

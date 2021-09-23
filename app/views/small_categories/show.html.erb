@@ -1,45 +1,48 @@
 <div class="container-fluid">
 
 
-<%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@small_category.large_category_id), class: "link far fa-arrow-alt-circle-left" %>
+      <%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@small_category.large_category_id), class: "link far fa-arrow-alt-circle-left" %>
 
-<h3>note</h3>
+      <h3>note</h3>
+      
+      <%= @small_category.title %>
+      
+      <textarea id="summernote" name="small_category[note]">
+        <%= @small_category.note %>
+      </textarea>
+      
+      <%= link_to '削除',  small_category_path(@small_category), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger col-xs-12" %>
 
-<%= @small_category.title %>
 
-<textarea id="summernote" name="small_category[note]">
-  <%= @small_category.note %>
-</textarea>
-
-<%= link_to '削除',  small_category_path(@small_category), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger col-xs-12" %>
-
-
-
-     <!-- include libraries(jQuery, bootstrap) -->
-    <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-     <!--include summernote css/js-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ja-JP.js"></script>
+      <!--summernote-->
+      <!--現状、一番表示が安定しているcdnの組み合わせです。-->
+      
+           <!-- include libraries(jQuery, bootstrap) -->
+          <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">-->
+          <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+      
+           <!--include summernote css/js-->
+          <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ja-JP.js"></script>
 
 </div>
-<script>
-$('#summernote').summernote({
-  tabsize: 2,
-  height: 500,
-   toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['insert', ['link', 'picture', 'video']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ]
-      });
-$('#summernote').summernote('disable');
-</script>
+
+  <!--summernote（編集ができない）-->
+          <script>
+          $('#summernote').summernote({
+            tabsize: 2,
+            height: 500,
+             toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                  ]
+                });
+          $('#summernote').summernote('disable');
+          </script>
 
