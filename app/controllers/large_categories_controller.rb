@@ -4,14 +4,14 @@ class LargeCategoriesController < ApplicationController
 
 
   def index
-    @large_categories = LargeCategory.where(user_id: current_user.id)
+    @large_categories = LargeCategory.where(user_id: current_user.id).order(created_at: :desc).page(params[:page])
     @large_category = LargeCategory.new
   end
 
   def create
     @large_category = current_user.large_categories.new(large_category_params)
     if @large_category.save
-      redirect_to user_large_categories_path, notice: "大カテゴリーを追加しました"
+      redirect_to user_large_categories_path, notice: "カテゴリーを追加しました"
     else
       @large_categories = LargeCategory.where(user_id: current_user.id)
       render 'index'
@@ -23,7 +23,7 @@ class LargeCategoriesController < ApplicationController
 
   def update
     if @large_category.update(large_category_params)
-      redirect_to user_large_categories_path(current_user), notice: "大カテゴリーを更新しました"
+      redirect_to user_large_categories_path(current_user), notice: "カテゴリーを更新しました"
     else
       render "edit"
     end
@@ -36,7 +36,7 @@ class LargeCategoriesController < ApplicationController
   end
 
   def search
-    @large_categories = LargeCategory.includes(:small_categories).references(:small_categories).search(params[:keyword])
+    @large_categories = LargeCategory.includes(:small_categories).where(user: current_user).references(:small_categories).search(params[:keyword]).page(params[:page])
   end
 
   private

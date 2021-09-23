@@ -1,5 +1,5 @@
-class GenresController < ApplicationController
-  before_action :authenticate_user!
+class Admin::GenresController < ApplicationController
+before_action :authenticate_admin!
 
   def index
    @genres = Genre.all
@@ -10,7 +10,7 @@ class GenresController < ApplicationController
    @genres = Genre.all
    @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to genres_path, notice: "ジャンルを追加しました"
+      redirect_to admin_genres_path, notice: "ジャンルを追加しました"
     else
       render :index
     end
@@ -24,7 +24,7 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @user = current_user
     if @genre.update(genre_params)
-      redirect_to genres_path, notice: "ジャンルを更新しました"
+      redirect_to admin_genres_path, notice: "ジャンルを更新しました"
     else
       render :edit
     end
@@ -36,3 +36,5 @@ class GenresController < ApplicationController
     params.require(:genre).permit(:name)
   end
 end
+
+

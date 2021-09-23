@@ -1,29 +1,30 @@
 <div class="container">
   <div class="col-md">
+
+
+    <i class="fab fa-suse fa-3x hover"></i><h1>検索する</h1>
+    <%= form_with url: search_user_large_categories_path, local: true, method: :get do |f| %>
+      <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
+      <%= f.submit "検索" %>
+    <% end %>
     
- <i class="fab fa-suse fa-3x hover"></i><h1>検索する</h1>
-<%= form_with url: search_large_categories_path, local: true, method: :get do |f| %>
-  <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
-  <%= f.submit "検索" %>
-<% end %>
-
-
-  <% @large_categories.each do |large_category| %>
-
-			<div class="card">
-        <div class="card-body">
-         <h4><span class="badge badge-dark"><%= large_category.genre.name %></span></h4>
-         <i class="fas fa-exclamation-circle" style="margin-left:15px;"></i><%= large_category.problem %>
-         <i class="far fa-lightbulb" style="margin-left:15px;"></i><%= large_category.solution %>
-
-          <div class="link-group float-right">
-             <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>
-             <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
-             <%= link_to '', large_category_path(large_category), method: :delete, data: {confirm: "削除しますか？"}, class: "fas fa-trash" %>
+    
+      <% @large_categories.each do |large_category| %>
+    
+    			<div class="card">
+            <div class="card-body">
+             <h4><span class="badge badge-dark"><%= large_category.genre.name %></span></h4>
+             <i class="fas fa-exclamation-circle" style="margin-left:15px;"></i><%= large_category.problem %>
+             <i class="far fa-lightbulb" style="margin-left:15px;"></i><%= large_category.solution %>
+    
+              <div class="link-group float-right">
+                 <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>
+                 <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
+                 <%= link_to '', large_category_path(large_category), method: :delete, data: {confirm: "削除しますか？"}, class: "fas fa-trash" %>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-  <% end %>
-
- </div>
- </div>
+      <% end %>
+      <%= paginate @large_categories %>
+  </div>
+</div>
