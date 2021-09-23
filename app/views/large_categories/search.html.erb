@@ -1,8 +1,8 @@
 <div class="container">
   <div class="col-md">
-    
+
  <i class="fab fa-suse fa-3x hover"></i><h1>検索する</h1>
-<%= form_with url: search_large_categories_path, local: true, method: :get do |f| %>
+<%= form_with url: search_user_large_categories_path, local: true, method: :get do |f| %>
   <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
   <%= f.submit "検索" %>
 <% end %>

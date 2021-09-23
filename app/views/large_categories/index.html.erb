@@ -1,10 +1,9 @@
-<h1>myデータベース</h1>
-
-<div class="container-fluid">
-  <div class="row">
+<div class="container">
+  <div class="row padding:0 auto">
 
 
-    <div class="col-md-4">
+    <div class="col-lg-5 border border-white shadow-lg">
+    	<h1>myデータベース</h1>
     	<i class="fab fa-suse fa-10x hover"></i>
        <h3>New</h3>
 
@@ -13,46 +12,39 @@
         <%= render 'layouts/errors', bg: @large_category %>
 
 
-         <div class="form-inline mb-3 text-right">
-            <span><%= f.label :genre_id, "ジャンル" %></span>
+          <div class="form-inline mb-3 text-right">
+            <span style="margin-right:30px;"><%= f.label :genre_id, "ジャンル" %></span>
             <span><%= f.collection_select :genre_id, Genre.all, :id, :name %></span>
           </div>
 
           <div class="text_field">
-             <%= f.label :problem %><br>
-             <%= f.text_field :problem %><br>
+             <%= f.label :problem, "問題・原因" %><br>
+             <%= f.text_field :problem, size: "40", class: "form-control" %><br>
           </div>
 
           <div class="text_area">
-             <%= f.label :solution  %><br>
-             <%= f.text_area :solution %><br>
+             <%= f.label :solution, "解決・詳細"  %><br>
+             <%= f.text_area :solution, size: "40", class: "form-control"  %><br>
           </div>
-         <%= f.submit '新規作成', class: "btn btn-primary col-xs-12" %>
-         <%= link_to 'ジャンル一覧', genres_path(@genre,@large_category), class: "btn btn-primary col-xs-12" %>
+         <%= f.submit '新規作成', class: "btn btn-dark col-xs-12" %>
+
         <% end %>
     </div>
 
 
 
 
-	  <div class="col-md-5 offset-md-1">
-	  	
-	  	<!--検索フォーム-->
-	  	<%= form_with url: search_large_categories_path, local: true, method: :get do |f| %>
-		  <%= f.text_field :keyword, placeholder: "キーワードを入力" %>
-		  <%= f.submit "検索" %>
-		　<% end %>
-			  	
-			  	
+	  <div class="col-lg-7">
+
 
 			<% @large_categories.each do |large_category| %>
 
-				<div class="card shadow-lg" style="width:30rem; margin:20px;">
+				<div class="card shadow-lg mx-auto" style="width:100%; margin:15px;">
 				  <div class="card-header" >
 				     <%= large_category.genre.name %>
 				     <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>
 				     <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
-				     <%= link_to '', large_category_path(large_category), method: :delete, data: {confirm: "削除しますか？"}, class: "fas fa-trash" %>
+				     <div class="fas fa-trash" data-toggle="modal" data-target="#large_category-Modal"></div>
 				  </div>
 
 
@@ -61,9 +53,29 @@
            <li class="list-group-item"><i class="far fa-lightbulb"></i><%= large_category.solution %></li>
           </ul>
         </div>
+
+<!--モーダル-->
+        <div class="modal fade" id="large_category-Modal"  role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+          <div class="modal-dialog">
+           <div class="modal-content">
+            <div class="modal-header">
+              <h3><div class="modal-title">削除確認</div></h3>
+            </div>
+            <div class="modal-body">
+              <label>エラーカテゴリー内のnoteも一緒に削除されます。データを削除しますか？</label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark" data-dismiss="modal">閉じる</button>
+              <%= button_to "削除", large_category_path(large_category), method: :delete, class: "btn btn-danger" %>
+            </div>
+           </div>
+          </div>
+        </div>
 	    <% end %>
 	  </div>
 
-
   </div>
 </div>
+
+
+

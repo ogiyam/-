@@ -18,10 +18,14 @@
 
     <!-- FontAwesomeの読み込み  -->
     <script src="https://kit.fontawesome.com/91ca5c5bd0.js" crossorigin="anonymous"></script>
+
+    <!--favicon読み込み-->
+    <%= favicon_link_tag('top-logo-header.png') %>
+
   </head>
 
 
-    <body style="padding:5rem">
+    <body style="padding-top:5rem; margin-bottom:3rem;">
 
       <header class="navbar navbar-expand navbar-dark bg-info fixed-top" >
         <div class="container-fluid">
@@ -34,10 +38,20 @@
                 <nav class="navbar-nav ml-auto">
                   <%= link_to 'Home', user_path(current_user), class: "btn btn-dark col-xs-12" %>
                   <%= link_to '使い方', about_path, class: "btn btn-dark col-xs-12" %>
-                  <%= link_to '検索する', search_large_categories_path, class: "btn btn-dark col-xs-12" %>
+                  <%= link_to '検索する', search_user_large_categories_path(current_user), class: "btn btn-dark col-xs-12" %>
                   <%= link_to 'まとめてポイlist', new_todo_path, class: "btn btn-dark col-xs-12" %>
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-dark col-xs-12" %>
                 </nav>
+
+            <% elsif admin_signed_in? %>
+                <nav class="navbar-nav mr-auto">
+                  <%= image_tag('top-logo-header.png') %>
+                </nav>
+                <nav class="navbar-nav ml-auto">
+                  <%= link_to 'ジャンル一覧', admin_genres_path, class:"nav-link" %></li>
+                  <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class:"nav-link" %></li>
+                </nav>
+
             <% else %>
                 <nav class="navbar-nav mr-auto">
                   <%= link_to image_tag('top-logo-header.png'), root_path, class:"header-title"  %>
@@ -46,10 +60,11 @@
                   <%= link_to '使い方', about_path, class: "btn btn-dark col-xs-12" %>
                 </nav>
             <% end %>
+
           </nav>
         </div>
       </header>
-      <p class="notice alert alert-danger text-center" style="margin-top:0.7rem; padding:0;"><%= notice %></p>
+      <p class="notice alert alert-danger text-center" style="margin-top:9px; padding:0;"><%= notice %></p>
       <%= yield %>
       <footer class="footer bg-info fixed-bottom" style="hight:1rem;">
       <div class="container">

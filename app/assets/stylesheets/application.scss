@@ -19,9 +19,16 @@
 
 
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 .top-logo{
   height: 100vh;
-  background-image: url('top-logo(2).png');
+  background-image: image-url('top-logo.png');
   background-position: center;
   background-repeat: no-repeat;
 	background-size: 40% auto;
@@ -49,7 +56,7 @@ header{
   margin-left: 80px;
 }
 
-/* 各ページ共通ボタン */
+/* topボタン */
 .btn_design {
   font-size: 30px;
   width: 400px;
@@ -65,7 +72,7 @@ header{
   border-radius: 10px;
   }
 
-/* 各ページボタンマウスオーバー時 */
+/* ボタンマウスオーバー時 */
 .btn_design:hover {
   color: #ffffff;
   background-color: #000000;
@@ -78,3 +85,7 @@ header{
   cursor: pointer;
  }
 
+.link{
+  text-decoration: none;
+  color: white;
+}

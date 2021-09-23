@@ -1,14 +1,18 @@
 <div class="container-fluid">
 
+
+<%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@small_category.large_category_id), class: "link far fa-arrow-alt-circle-left" %>
+
 <h3>note</h3>
 
 <%= @small_category.title %>
-<%= @small_category.note %>
-<textarea id="summernote" name="small_category[note]"></textarea>
+
+<textarea id="summernote" name="small_category[note]">
+  <%= @small_category.note %>
+</textarea>
 
 <%= link_to '削除',  small_category_path(@small_category), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger col-xs-12" %>
 
-<%= link_to 'ノート一覧へ',  large_category_small_categories_path(@small_category.large_category_id),　class: "btn btn-primary col-xs-12" %>
 
 
      <!-- include libraries(jQuery, bootstrap) -->
@@ -22,15 +26,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ja-JP.js"></script>
 
 </div>
+<script>
+$('#summernote').summernote({
+  tabsize: 2,
+  height: 500,
+   toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+$('#summernote').summernote('disable');
+</script>
 
-<!--$('#summernote').summernote({-->
-<!--  toolbar: [-->
-<!--    // [groupName, [list of button]]-->
-<!--    ['style', ['bold', 'italic', 'underline', 'clear']],-->
-<!--    ['font', ['strikethrough', 'superscript', 'subscript']],-->
-<!--    ['fontsize', ['fontsize']],-->
-<!--    ['color', ['color']],-->
-<!--    ['para', ['ul', 'ol', 'paragraph']],-->
-<!--    ['height', ['height']]-->
-<!--  ]-->
-<!--});-->

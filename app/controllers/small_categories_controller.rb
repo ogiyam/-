@@ -3,8 +3,15 @@ class SmallCategoriesController < ApplicationController
 
 
   def index
-   @large_category = LargeCategory.find(params[:large_category_id])
-   @small_categories = SmallCategory.where(large_category_id: @large_category.id)
+    @large_category = LargeCategory.find(params[:large_category_id])
+    @small_categories = SmallCategory.where(large_category_id: @large_category.id)
+    if params[:order] != nil
+      if params[:order] == 'newly'
+        @small_categories = @small_categories.order(created_at: :desc)
+      elsif params[:order] == 'star'
+        @small_categories = @small_categories.includes(:stars).order("stars.small_category_id desc, small_categories.created_at desc")
+      end
+    end
   end
 
   def new
@@ -18,6 +25,7 @@ class SmallCategoriesController < ApplicationController
     if @small_category.save
       redirect_to large_category_small_categories_path, notice: "ノートを追加しました"
     else
+      flash.now[:notice]="エラーが発生しました"
       @small_categories = SmallCategory.where(large_category_id: @large_category.id)
       render 'index'
     end
@@ -47,6 +55,11 @@ class SmallCategoriesController < ApplicationController
     @small_category.destroy
     redirect_to large_category_small_categories_path(@small_category.large_category_id)
   end
+
+  # def search_star
+  #   @large_category = LargeCategory.find(params[:large_category_id])
+  #   @small_categories = SmallCategory.where(large_category_id: @large_category.id).includes(:stars).sort {|a,b| b.stars.size <=> a.stars.size}
+  # end
 
   private
 

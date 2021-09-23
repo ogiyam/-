@@ -1,25 +1,23 @@
 <div class="container-fluid" style="margin-top:-6px;">
-
-<h3>note</h3>
- 
-      <%= form_with model:[@large_category, @small_category], url: large_category_small_categories_path, method: :post, local:true do |f| %>
-
-         <%= render 'layouts/errors', bg: @small_category %>
-
-          <%= f.submit '登録する', class: "btn btn-primary col-xs-12" %>
-          
-          <div class="text_field">
-             <%= f.label :title %><br>
-             <%= f.text_field :title %><br>
-             <%= f.hidden_field :large_category_id, :value => @large_category.id %>
-          </div>
-          <textarea id="summernote" name="small_category[note]"></textarea>
-
-      <% end %>
-
-
-    <%= link_to '一覧へ戻る',  large_category_small_categories_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
-    <%= link_to 'show',  small_category_path(@large_category,@small_category), class: "btn btn-primary col-xs-12" %>
+  
+      <%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@large_category), class: "link far fa-arrow-alt-circle-left" %>
+      
+      <h3>note</h3>
+       
+            <%= form_with model:[@large_category, @small_category], url: large_category_small_categories_path, method: :post, local:true do |f| %>
+      
+               <%= render 'layouts/errors', bg: @small_category %>
+      
+                <%= f.submit '登録する', class: "btn btn-dark col-xs-12" %>
+                
+                <div class="text_field">
+                   <%= f.label :title %><br>
+                   <%= f.text_field :title %><br>
+                   <%= f.hidden_field :large_category_id, :value => @large_category.id %>
+                </div>
+                <textarea id="summernote" name="small_category[note]"></textarea>
+      
+            <% end %>
 
 </div>
 
@@ -36,6 +34,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ja-JP.js"></script>
 
-
+<script>
+$('#summernote').summernote({
+  tabsize: 2,
+  height: 500,
+   toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+$('#summernote').summernote('disable');
+</script>
 
 
