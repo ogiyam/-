@@ -25,7 +25,7 @@
   </head>
 
 
-    <body style="padding:5rem">
+    <body style="padding-top:5rem; margin-bottom:3rem;">
 
       <header class="navbar navbar-expand navbar-dark bg-info fixed-top" >
         <div class="container-fluid">
@@ -38,7 +38,7 @@
                 <nav class="navbar-nav ml-auto">
                   <%= link_to 'Home', user_path(current_user), class: "btn btn-dark col-xs-12" %>
                   <%= link_to '使い方', about_path, class: "btn btn-dark col-xs-12" %>
-                  <%= link_to '検索する', search_large_categories_path, class: "btn btn-dark col-xs-12" %>
+                  <%= link_to '検索する', search_user_large_categories_path(current_user), class: "btn btn-dark col-xs-12" %>
                   <%= link_to 'まとめてポイlist', new_todo_path, class: "btn btn-dark col-xs-12" %>
                   <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-dark col-xs-12" %>
                 </nav>

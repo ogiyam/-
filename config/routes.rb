@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   
+  
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
@@ -17,16 +18,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update], shallow: true do
     resources :large_categories, only: [:index, :create, :edit, :update, :destroy], shallow: true do
+      collection do
+        get :search
+      end
       resources :small_categories, only: [:index, :new, :show, :create, :destroy] do
         resource :stars, only: [:create, :destroy]
       end
-    end
-  end
-
-
- resources :large_categories do
-    collection do
-      get :search
     end
   end
 

@@ -1,8 +1,8 @@
 <div class="container">
-  <div class="row">
+  <div class="row padding:0 auto">
 
 
-    <div class="col-lg-5 border border-white shadow-lg ">
+    <div class="col-lg-5 border border-white shadow-lg">
     	<h1>myデータベース</h1>
     	<i class="fab fa-suse fa-10x hover"></i>
        <h3>New</h3>
@@ -34,18 +34,17 @@
 
 
 
-	  <div class="col-lg-7 mx-auto">
+	  <div class="col-lg-7">
 
 
 			<% @large_categories.each do |large_category| %>
 
-				<div class="card shadow-lg" style="width:97%; margin:10px;">
+				<div class="card shadow-lg mx-auto" style="width:100%; margin:15px;">
 				  <div class="card-header" >
 				     <%= large_category.genre.name %>
 				     <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open" %>
 				     <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
-				     <a href="/large_categories/<%= large_category.id %>" class="fas fa-trash" data-toggle="modal" data-target="#large_category-Modal">
-				   </a>
+				     <div class="fas fa-trash" data-toggle="modal" data-target="#large_category-Modal"></div>
 				  </div>
 
 
@@ -54,28 +53,29 @@
            <li class="list-group-item"><i class="far fa-lightbulb"></i><%= large_category.solution %></li>
           </ul>
         </div>
+
+<!--モーダル-->
+        <div class="modal fade" id="large_category-Modal"  role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+          <div class="modal-dialog">
+           <div class="modal-content">
+            <div class="modal-header">
+              <h3><div class="modal-title">削除確認</div></h3>
+            </div>
+            <div class="modal-body">
+              <label>エラーカテゴリー内のnoteも一緒に削除されます。データを削除しますか？</label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-dark" data-dismiss="modal">閉じる</button>
+              <%= button_to "削除", large_category_path(large_category), method: :delete, class: "btn btn-danger" %>
+            </div>
+           </div>
+          </div>
+        </div>
 	    <% end %>
 	  </div>
-
 
   </div>
 </div>
 
 
 
-<div class="modal fade" id="large_category-Modal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><div class="modal-title" id="myModalLabel">削除確認</div></h3>
-            </div>
-            <div class="modal-body">
-                <label>エラーカテゴリー内のnoteも一緒に削除されます。データを削除しますか？</label>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">閉じる</button>
-                <button type="button" class="btn btn-danger" data-method="delete">削除</button>
-            </div>
-        </div>
-    </div>
-</div>
