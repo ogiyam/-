@@ -7,7 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <!-- jquery-uiの読み込み  -->
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
@@ -57,7 +57,6 @@
                   <%= link_to image_tag('top-logo-header.png'), root_path, class:"header-title"  %>
                 </nav>
                  <nav class="navbar-nav ml-auto">
-                  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-dark col-xs-12" %>
                   <%= link_to '使い方', about_path, class: "btn btn-dark col-xs-12" %>
                 </nav>
             <% end %>
@@ -67,7 +66,7 @@
       </header>
       <p class="notice alert alert-danger text-center" style="margin-top:9px; padding:0;"><%= notice %></p>
       <%= yield %>
-      <footer class="footer bg-info fixed-bottom" style="hight:1rem;">
+      <footer class="footer bg-info fixed-bottom">
       <div class="container">
     <p class="text-center">Take it easy.</p>
     </body>

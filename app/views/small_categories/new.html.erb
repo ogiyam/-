@@ -1,7 +1,6 @@
 
 <div class="container" style="margin-top:-6px;">
 
-      <!--<h3>note</h3>-->
       <%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@large_category), class: "link far fa-arrow-alt-circle-left" %>
 
 
@@ -10,7 +9,7 @@
                 <%= render 'layouts/errors', bg: @small_category %>
 
                 <div class="text_field">
-                   <%= f.label :title %><br>
+                   <%= f.label :title %>
                    <%= f.text_field :title %><br>
                    <%= f.hidden_field :large_category_id, :value => @large_category.id %>
                 </div>

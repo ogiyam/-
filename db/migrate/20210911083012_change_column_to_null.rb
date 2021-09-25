@@ -4,7 +4,7 @@ class ChangeColumnToNull < ActiveRecord::Migration[5.2]
   end
 
   def down
-    change_column_null :genres, :large_category_id, false
+    #change_column_null :genres, :large_category_id, false
   end
 end
 

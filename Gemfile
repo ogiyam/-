@@ -59,7 +59,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
+  gem 'rspec-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -75,7 +76,9 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'image_processing', '~> 1.2'
 gem 'mini_magick'
 gem 'dotenv-rails'
-gem 'rails-i18n', '~> 5.1' 
+gem 'rails-i18n', '~> 5.1'
+gem 'rubocop', require:false
+gem 'rubocop-rails', require:false
 
 group :production do
   gem 'mysql2'

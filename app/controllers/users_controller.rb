@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
 
-
   def show
     @user = User.find(params[:id])
   end
@@ -20,6 +19,13 @@ class UsersController < ApplicationController
       flash.now[:error] = @user.errors.full_messages
       render "edit"
     # end
+    end
+  end
+
+  before_action :check_guest, only: :update
+  def check_guest
+    if @user.email == 'guest@example.com'
+      redirect_to user_path(current_user), notice: 'ゲストユーザーは編集できません。'
     end
   end
 
