@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
 
   has_one_attached :image
-  # validate :image_type
+# 　validate :image_type
 
   def self.guest
     find_or_create_by(email: 'guest@example.com') do |user|
