@@ -1,12 +1,12 @@
 <div class="container">
 　<div class="text-center">
-　　<div class="border border-white shadow-lg">
+　　<div class="border border-white shadow-lg padding:5px;">
 
-      <h2><strong style="color:white;">・・・ログイン・・・</strong></h2>
+      <h2><strong style="color:white;">・・・ログイン・・・</strong></h2><br>
 
       <%= form_with model: @user, url: user_session_path, local: true do |f| %>
 
-        <div class="field">
+        <div class="field" style="margin-top:15px;" >
           <%= f.label :name %><br />
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
         </div>
@@ -29,8 +29,9 @@
       <% end %>
 
       <i class="fab fa-suse fa-10x hover"></i><br>
-      <%= link_to '新規登録へ', new_user_registration_path, class: "btn btn-outline-dark" %>
-
+      <div style="margin-bottom:15px;">
+        <%= link_to '新規登録へ', new_user_registration_path, class: "btn btn-outline-dark" %>
+      </div>
 
 　　</div>
 　</div>
