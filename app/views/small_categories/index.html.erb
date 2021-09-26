@@ -9,13 +9,13 @@
 
         <div class="card shadow-lg" style="width:30rem; margin:10px auto;">
             <div class="card-header">
-             <%= @large_category.genre.name %>
+             <strong><%= @large_category.genre.name %></strong>
             </div>
           <ul class="list-group list-group-flush">
             <li class="list-group-item"><%= @large_category.problem %></li>
             <li class="list-group-item"><%= @large_category.solution %></li>
           </ul>
-          <%= link_to '新規ノート', new_large_category_small_category_path, class: "btn btn-dark col-xs-12" %>
+          <%= link_to '・・・   新規ノート ・・・', new_large_category_small_category_path, class: "btn btn-dark col-xs-12" %>
         </div>
         
         

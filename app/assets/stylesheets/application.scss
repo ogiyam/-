@@ -26,13 +26,13 @@
 }
 
 
-.top-logo{
+.top__logo{
   height: 100vh;
   background-image: image-url('top-logo.png');
   background-position: center;
   background-repeat: no-repeat;
-	background-size: 40% auto;
-	margin-top: -200px;
+	background-size: 35% auto;
+	margin-top: -214px;
 }
 
 body{
@@ -96,3 +96,34 @@ header{
   position: sticky;
   top: 7.5rem;
 }
+
+// /*スマホ用のcssを記述*/
+// @media screen and (max-width:639px) {
+// .top__logo{
+//   background-size: 10rem auto;
+// }
+// body{
+//   font-size: 1rem;
+// }
+// }
+
+// /* 600px〜959px：タブレット*/
+// @media screen and (min-width:600px) and (max-width:959px) {
+// .top__logo{
+//   background-size: 10rem auto;
+// }
+// body{
+//   font-size: 1.5rem;
+// }
+// }
+
+// /* 960px〜1279px：小型PC*/
+// @media screen and (min-width:960px) {
+// .top__logo{
+//   background-size: 20rem auto;
+// }
+// body{
+//   font-size: 1rem;
+// }
+// }
+
