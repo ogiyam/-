@@ -9,4 +9,10 @@ class SmallCategory < ApplicationRecord
 
    validates :title, presence: true
    validates :note, presence: true
+
+   # 保留
+   # def self.guest
+   #  @user.email = User.find_by(email: 'guest@example.com')
+   #  @large_category.user.email = LargeCategory.find_by(email: 'guest@example.com')
+   # end
 end

@@ -12,12 +12,12 @@
           <%= f.text_field :name, autofocus: true %>
         </div>
 
-        <div class="field" style="margin-top:15px;">
+        <div class="field" style="margin-top:5px;">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
 
-        <div class="field" style="margin-top:15px;">
+        <div class="field" style="margin-top:5px;">
           <%= f.label :password %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> 文字以上)</em>
@@ -25,7 +25,7 @@
           <%= f.password_field :password, autocomplete: "new-password" %>
         </div>
 
-        <div class="field" style="margin-top:15px;">
+        <div class="field" style="margin-top:5px;">
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
@@ -36,8 +36,9 @@
       <% end %>
 
       <i class="fab fa-suse fa-10x hover"></i><br>
-      <%= link_to 'ログイン画面へ', new_user_session_path, class: "btn btn-outline-dark" %>
-
+      <div style="margin-bottom:3px;">
+         <%= link_to 'ログイン画面へ', new_user_session_path, class: "btn btn-outline-dark" %>
+　    </div>
 
 　　</div>
 　</div>
