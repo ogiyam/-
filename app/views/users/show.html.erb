@@ -1,16 +1,16 @@
-<div class="container" style="margin-top:90px;">
+<div class="container" style="margin-top:80px;">
   <div class="row text-center">
-    
 
-    <div class="card shadow-lg mx-auto" style="width:60%;">
+
+    <div class="card Polka shadow-lg mx-auto" style="width:60%;">
 
 <!--ユーザー-->
       <div class="card-body">
-        <h1 class="card-title"><strong>Home</strong></h1>
-        <h4 class="card-name"><%= @user.name %></h4>
+        <i class="fab fa-suse fa-5x hover fa-flip-horizontal" style="margin-top:20px;"></i>
+        <h5 class="card-name">こんにちは！<%= @user.name %>さん</h5>
         <h6 class="card-goal mb-2 text-muted">- <%= @user.goal %> -</h6>
       </div>
-      
+
       <div class="card shadow-lg mx-auto" style=" width:12rem;">
         <% if @user.image.attached? %>
           <%= image_tag @user.image.variant(resize:'300x300') %>
@@ -20,9 +20,9 @@
         <%= link_to '', edit_user_path(current_user), class:"fas fa-user-edit fa-1x" %>
       </div>
 
-      <div class="card-botton" style="padding:30px;">
-        <%= link_to 'myデータベース', user_large_categories_path(@user, @large_category), class:"btn btn-outline-dark btn-lg rounded-0 p-0" %><br>
-        <i class="fab fa-suse fa-5x hover fa-flip-horizontal text-right" style="margin-top:20px;"></i>
+
+      <div class="card-botton" style="padding:50px;">
+        <%= link_to 'myデータベース', user_large_categories_path(@user, @large_category), class:"mydatabase-botton" %>
       </div>
 
 

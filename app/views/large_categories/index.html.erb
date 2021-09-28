@@ -15,8 +15,8 @@
 
 
           <div class="form-inline mb-3 text-right">
-            <span style="margin-right:30px;"><%= f.label :genre_id, "ジャンル" %></span>
-            <span><%= f.collection_select :genre_id, Genre.all, :id, :name %></span>
+             <span style="margin-right:30px;"><%= f.label :genre_id, "ジャンル" %></span>
+             <%= f.collection_select :genre_id, Genre.all, :id, :name %>
           </div>
 
           <div class="text_field">
@@ -35,30 +35,25 @@
     </div>
 
 
-
 <!--カテゴリー一覧-->
 	  <div class="col-lg-7">
 
-
 			<% @large_categories.each do |large_category| %>
 
-				<div class="card shadow-lg mx-auto" style="width:100%; margin:15px;">
-				  <div class="card-header">
-				     <strong><%= large_category.genre.name %></strong>
-				     <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
-				     <div class="fas fa-trash" data-toggle="modal" data-target="#large_category-Modal"></div>
-
-
-				  <div class="float-right">
-             <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open fa-2x" %>
-          </div>
-          </div>
-
-          <ul class="list-group list-group-flush">
-           <li class="list-group-item"><i class="fas fa-exclamation-circle"></i><%= large_category.problem %></li>
-           <li class="list-group-item"><i class="far fa-lightbulb"></i><%= large_category.solution %></li>
-          </ul>
-        </div>
+			  <div class="card shadow-lg mx-auto" style="width:100%; margin:15px;">
+					<div class="card-header">
+						 <strong><%= large_category.genre.name %></strong>
+             <%= link_to '', edit_large_category_path(large_category), class: "fas fa-edit" %>
+             <div class="fas fa-trash" data-toggle="modal" data-target="#large_category-Modal"></div>
+							<div class="float-right">
+							   <%= link_to '', large_category_small_categories_path(large_category), class: "fas fa-book-open fa-2x" %>
+							</div>
+					</div>
+					<ul class="list-group list-group-flush">
+						<li class="list-group-item"><i class="fas fa-exclamation-circle"></i><%= large_category.problem %></li>
+            <li class="list-group-item"><i class="far fa-lightbulb"></i><%= large_category.solution %></li>
+					</ul>
+				</div>
 
 <!--削除確認モーダル-->
         <div class="modal fade" id="large_category-Modal"  role="dialog" aria-labelledby="basicModal" aria-hidden="true">

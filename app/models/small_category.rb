@@ -4,15 +4,14 @@ class SmallCategory < ApplicationRecord
    has_many :stars, dependent: :destroy
 
    def star_by?(small_category)
-      stars.where(small_category_id: small_category.id).exists?
+     stars.where(small_category_id: small_category.id).exists?
    end
 
    validates :title, presence: true
    validates :note, presence: true
 
-   # 保留
-   # def self.guest
-   #  @user.email = User.find_by(email: 'guest@example.com')
-   #  @large_category.user.email = LargeCategory.find_by(email: 'guest@example.com')
-   # end
+
+   def self.guest
+     @large_category.user.email = User.find_by(email: 'guest@example.com')
+   end
 end
