@@ -38,7 +38,6 @@ function draggable_ini(){
         var delete_message = confirm("削除してもよろしいですか？");
         if(delete_message == true){
 
-          //ドロップされた要素を取得 jQueryオブジェクトからDOM要素を取り出す
           var delete_todo = ui.draggable[0];
           //jQueryのdata()で属性を取得(削除対象のid)
           var delete_ID = ui.draggable.data("todo");
