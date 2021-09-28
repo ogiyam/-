@@ -11,9 +11,9 @@ class LargeCategoriesController < ApplicationController
   def create
     @large_category = current_user.large_categories.new(large_category_params)
     if @large_category.save
-      redirect_to user_large_categories_path, notice: "カテゴリーを追加しました"
+      redirect_to user_large_categories_path(current_user), notice: "カテゴリーを追加しました"
     else
-      @large_categories = LargeCategory.where(user_id: current_user.id)
+      @large_categories = LargeCategory.where(user_id: current_user.id).page(params[:page])
       render 'index'
     end
   end
@@ -31,8 +31,11 @@ class LargeCategoriesController < ApplicationController
 
   def destroy
     @large_category = LargeCategory.find(params[:id])
-    @large_category.destroy
-    redirect_to user_large_categories_path(current_user)
+    if @large_category.destroy
+    redirect_to user_large_categories_path(current_user), notice: "カテゴリーを削除しました"
+    else
+      render "index"
+    end
   end
 
   def search
