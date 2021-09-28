@@ -20,12 +20,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # before_action :check_guest, only: :update
-  # def check_guest
-  #   if @user.email == 'guest@example.com'
-  #     redirect_to user_path(current_user), notice: 'ゲストユーザーは編集できません。'
-  #   end
-  # end
+  before_action :check_guest, only: :update
+  def check_guest
+    if @user.email == 'guest@example.com'
+      redirect_to user_path(current_user), notice: 'ゲストユーザーは編集できません。'
+    end
+  end
 
     private
 
