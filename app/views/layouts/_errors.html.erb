@@ -1,12 +1,14 @@
 <!--共通エラーメッセージ-->
-      <% if bg.errors.any? %>
-      <i class="fas fa-exclamation-circle fa-2x text-center"></i>
-       <p class="err_head" style="font-size:20px;"><%= bg.errors.count %> 件のエラーが発生しました:</p>
-       <p class="err_list">
-     　  <% bg.errors.full_messages.each do |messages| %>
-         <p>- <%= messages %> -</p>
-        <% end %>
-       </p>
+<div class="text-center" style="background-color: #D8BfD8;">
+    <% if bg.errors.any? %>
+    <i class="fas fa-exclamation-circle fa-2x text-center"></i>
+     <div class="err_head" style="font-size:20px;"><%= bg.errors.count %> 件のエラーが発生しました:</div>
+     <div class="err_list">
+   　  <% bg.errors.full_messages.each do |messages| %>
+       <p>- <%= messages %> -</p>
       <% end %>
+     </div>
+    <% end %>
+</div>
 
 

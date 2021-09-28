@@ -1,33 +1,33 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm">   
-     
-         
-          <h1>エラーカテゴリー編集</h1>
-          
+　<div class="text-center">
+　　<div class="border border-white shadow-lg">
+
+
+          <h3>エラーカテゴリー編集</h3>
+
            <%= link_to '一覧へ戻る',  user_large_categories_path(@large_category), class: "link far fa-arrow-alt-circle-left" %>
-    
+
            <%= form_with model: @large_category, local:true do |f| %>
-    
+
               <%= render 'layouts/errors', bg: @large_category %>
-           
-              <div class="form-inline mb-3 text-right">
+
+              <div class="form text-center" style="padding:20px;">
                 <span><%= f.label :genre_id, "ジャンル" %></span>
-                <span><%= f.collection_select :genre_id, Genre.all, :id, :name %></span>
+                <%= f.collection_select :genre_id, Genre.all, :id, :name %>
               </div>
-    
-              <div class="text_field">
+
+              <div class="text_field" style="padding:20px;">
                  <%= f.label :problem %><br>
                  <%= f.text_field :problem %><br>
               </div>
-    
-              <div class="text_area">
+
+              <div class="text_area" style="padding:20px;">
                  <%= f.label :solution  %><br>
                  <%= f.text_area :solution %><br>
               </div>
              <%= f.submit '保存する', class: "btn btn-dark col-xs-12" %>
           <% end %>
-    
+
     </div>
   </div>
 </div>

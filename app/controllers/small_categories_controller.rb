@@ -41,13 +41,13 @@ class SmallCategoriesController < ApplicationController
     redirect_to large_category_small_categories_path(@small_category.large_category_id)
   end
 
-# 　保留
-  # before_action :check_guest, only: :destroy
-  # def check_guest
-  #   if @large_category.email == 'guest@example.com'
-  #     redirect_to large_category_small_categories_path, notice: 'ゲストユーザーは削除ができません。'
-  #   end
-  # end
+  before_action :check_guest, only: :destroy
+  def check_guest
+    @small_category = SmallCategory.find(params[:id])
+    if @small_category.large_category.user.email == 'guest@example.com'
+      redirect_to large_category_small_categories_path(@small_category.large_category_id), notice: 'ゲストユーザーは削除ができません。'
+    end
+  end
 
   private
 
