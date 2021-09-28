@@ -4,7 +4,7 @@
     <i class="fas fa-exclamation-circle fa-2x text-center"></i>
      <div class="err_head" style="font-size:20px;"><%= bg.errors.count %> 件のエラーが発生しました:</div>
      <div class="err_list">
-   　  <% bg.errors.full_messages.each do |messages| %>
+      <% bg.errors.full_messages.each do |messages| %>
        <p>- <%= messages %> -</p>
       <% end %>
      </div>

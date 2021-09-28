@@ -1,24 +1,18 @@
 <div class="justify-content">
     <div class="text-center">
-      
-      
+
       <div class="trash-box"><i class="fas fa-trash fa-7x" ></i></div>
-    
+
       <i class="fab fa-suse fa-5x hover"></i>
       <h3 style="padding-bottom:30px;">- まとめてポイlist -</h3>
 
-
-
-       <div id ="new-todo">
+      <div id ="new-todo">
         <%= render  "todos/todo_form", todo: @todo %>
-       </div>
+      </div>
 
-
-       <div id="new-todo-index">
+      <div id="new-todo-index">
         <%= render  "todos/index", todos: @todos %>
-       </div>
+      </div>
 
-
-   </div>
-  </div>
+    </div>
 </div>

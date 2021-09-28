@@ -11,23 +11,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    # ActiveRecord::Base.transaction do
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user), notice: "ユーザー情報を更新しました"
     else
       flash.now[:error] = @user.errors.full_messages
       render "edit"
-    # end
     end
   end
 
-  before_action :check_guest, only: :update
-  def check_guest
-    if @user.email == 'guest@example.com'
-      redirect_to user_path(current_user), notice: 'ゲストユーザーは編集できません。'
-    end
-  end
+  # before_action :check_guest, only: :update
+  # def check_guest
+  #   if @user.email == 'guest@example.com'
+  #     redirect_to user_path(current_user), notice: 'ゲストユーザーは編集できません。'
+  #   end
+  # end
 
     private
 
