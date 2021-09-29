@@ -1,19 +1,17 @@
 <div class="justify-content">
      <div class="mx-auto text-center">
-       
+
         <h5>管理者画面</h5>
                <h3>New</h3>
 
           <%= form_with model: @genre, url: admin_genres_path, local:true do |f| %>
-
-              <%= render 'layouts/errors', bg: @genre %>
-
+            <%= render 'layouts/errors', bg: @genre %>
               <div class="text_area" style="margin:0 auto;">
                  <p>Genre name</p>
                  <%= f.text_area :name %><br>
-         　　    　<%= f.submit'新規作成', class: "btn btn-dark col-sm-1" %>
-         　　　</div>
-      　   <% end %>
+                 <%= f.submit'新規作成', class: "btn btn-dark col-sm-1" %>
+              </div>
+          <% end %>
 
 
           <% @genres.each do |genre| %>
@@ -22,7 +20,7 @@
               <%= genre.name %>
               <%= link_to '', edit_admin_genre_path(genre), class: "fas fa-edit" %>
             </div>
-           <% end %>
-    
+          <% end %>
+
     </div>
 </div>

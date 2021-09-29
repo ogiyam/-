@@ -85,7 +85,7 @@ header{
   cursor: pointer;
  }
 
- .mydatabase-botton {
+ .debugcho-botton {
   color: #fff;
   font-size: 30px;
   font-weight: bold;
@@ -96,7 +96,7 @@ header{
   transition: .3s;
 }
 
-.mydatabase-botton:hover {
+.debugcho-botton:hover {
   transform: scale(1.2);
   text-decoration: none;
   color: #fff;
@@ -117,11 +117,11 @@ header{
 }
 
 .about-heading {
-  padding: 1em 1em;/*文字の上下 左右の余白*/
-  color: black;/*文字色*/
-  background: #f4f4f4;/*背景色*/
-  border-left: solid 5px #7db4e6;/*左線*/
-  border-bottom: solid 3px #d7d7d7;/*下線*/
+  padding: 1em 1em;
+  color: black;
+  background: #f4f4f4;
+  border-left: solid 5px #7db4e6;
+  border-bottom: solid 3px #d7d7d7;
 }
 
 /* タブレット*/
@@ -135,9 +135,6 @@ header{
 @media screen and (min-width:960px) {
 .top__logo{
   background-size: 25rem auto;
-}
-body{
-  font-size: 1rem;
 }
 }
 
