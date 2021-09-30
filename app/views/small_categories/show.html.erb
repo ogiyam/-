@@ -1,16 +1,12 @@
 <div class="container">
+    <%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@small_category.large_category_id), class: "link far fa-arrow-alt-circle-left" %>
 
-
-      <%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@small_category.large_category_id), class: "link far fa-arrow-alt-circle-left" %>
-
-      <h3> <%= @small_category.title %></h3>
-
+    <h3> <%= @small_category.title %></h3>
       <textarea id="summernote" name="small_category[note]">
         <%= @small_category.note %>
       </textarea>
-
-      <%= link_to '削除',  small_category_path(@small_category), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger col-xs-12" %>
-
+      <%= link_to '削除', small_category_path(@small_category), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger col-xs-12" %>
+</div>
 
       <!--summernote-->
       <!--現状、一番表示が安定しているcdnの組み合わせです。-->
@@ -25,7 +21,7 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.min.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-ja-JP.js"></script>
 
-</div>
+
 
   <!--summernote（show用）-->
           <script>
