@@ -3,11 +3,10 @@
     <div class="col-sm">
 
       <h1>ユーザー編集</h1>
-  
+
         <%= form_with model: @user, local:true do |f| %>
-  
-               <%= render 'layouts/errors', bg: @user %>
-  
+          <%= render 'layouts/errors', bg: @user %>
+
              <p class="Name_field">
                 <%= f.label :name, "名前" %><br>
                 <%= f.text_field :name, size: 40 %><br>
@@ -20,7 +19,7 @@
                 <%= f.label :goal, "目標・好きな言葉" %><br>
                 <%= f.text_area :goal, size: "40x5" %><br>
              </p>
-                 <%= f.submit "Update User" %>
+                <%= f.submit "保存する", class: "btn btn-dark col-xs-12"  %>
         <% end %>
     </div>
   </div>
