@@ -1,8 +1,8 @@
   <% todos.each do |todo| %>
-      <div data-todo="<%= todo.id %>" class="task-list">
+    <div data-todo="<%= todo.id %>" class="task-list">
       <div  class="card shadow-lg" style="width:50%; margin:20px auto;">
         <span class="badge badge-light"><%= l todo.created_at, format: :short %></span>
          <p style="padding:10px;"><%= todo.task %></p>
       </div>
-     </div>
+    </div>
   <% end %>
