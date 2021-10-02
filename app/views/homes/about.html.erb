@@ -1,62 +1,41 @@
 <!--about-->
-      <div class="card shadow-lg mx-auto" style="width:60%; margin-top:90px;">
-        <div class="card-title text-center">
-          <p style="font-size:40px; margin-top:60px;"><strong>- 使い方 -</strong></p>
-       </div>
 
-        <div class="card-body" style="margin:0 auto;">
-         <p>目次</p>
-         <a href="#my-database">1. デバッグ帳</a><br>
-         <a href="#todo-list">2. まとめてポイlist</a><br>
-         <a href="#search">3. 検索する</a><br>
+    <% if user_signed_in? %>
+      <%= link_to 'Homeへ戻る',  user_path(current_user), class: "link far fa-arrow-alt-circle-left" %>
+    <% else %>
+      <%= link_to 'Topへ戻る',  root_path, class: "link far fa-arrow-alt-circle-left" %>
+    <% end %>
+
+    <div class="card shadow-lg mx-auto" style="width:60%; margin:90px; padding-bottom:50px;">
+
+        <div class="text-center">
+          <i class="fab fa-suse fa-6x hover"></i>
+          <p style="font-size:20px; margin-top:60px; background-color:#FFC0CB;"><b>デバッグ帳でエラー解決の「コツ」や「対処法」を楽しく身につけましょう！</b></p>
+          <p style="margin:50px;">
+           <p>デバッグはプログラミング初学者にとって最初の関門！</p><br>
+           <p>その場しのぎになりがちなエラー解決を、</p><br>
+           <p>記録、活用することでプログラミング初学者のデバッグ力向上をサポートするサイトです。</p>
+          </p>
         </div>
-      </div>
-
-      <div class="card mx-auto" style="width:60%; margin-top:200px;">
-        <div class="card-title text-center">
-         <a id="my-database" style="font-size:20px;"></a><br>
+        <div class="card mx-auto" style="width:80%; margin-top:30px;">
+          <div class="about-heading"><h5 style="border-bottom: 2px solid #6495ED;"><i class="fas fa-check-circle"></i>デバッグ帳</h5>
+            <p>
+              <i class="far fa-hand-point-right"></i>カテゴリーを決めましょう<br>
+              <i class="far fa-hand-point-right"></i>カテゴリーごとにノートを書きましょう<br>
+            </p>
+          </div>
+          <div class="about-heading"><h5 style="border-bottom: 2px solid #6495ED;"><i class="fas fa-check-circle"></i>まとめてポイlist</h5>
+            <p>
+              <i class="far fa-hand-point-right"></i>デバッグ内容をまとめるために、メモしておきましょう<br>
+              <i class="far fa-hand-point-right"></i>まとめ終わったらゴミ箱にドラッグ＆ドロップ
+            </p>
+          </div>
+          <div class="about-heading"><h5 style="border-bottom: 2px solid #6495ED;"><i class="fas fa-check-circle"></i>検索する</h5>
+            <p>
+              <i class="far fa-hand-point-right"></i>作成したデバッグ帳を検索しましょう<br>
+              <i class="far fa-hand-point-right"></i>「問題・原因」、「解決・詳細」、「ノートのタイトル」から検索できます
+            </p>
+          </div>
         </div>
-      <div class="card-body shadow-lg " style="margin-top:30px;">
-        <h4 class="about-heading" style="padding:10px; margin:20px;"><strong>デバッグ帳</strong></h4>
-        <p><i class="star fas fa-star" style="color:yellow;"></i>「カテゴリー」を決めて、その中に「ノート」を書いていきましょう!</p>
-        <p>＜カテゴリーを決定する＞</p>
-        <p>① 言語をセレクトボタンで選びます</p>
-        <p>② 「問題・原因」と「解決・詳細」を記入します</p>
-        <p>③ 新規作成ボタンを押します</p>
-        <p>④ カテゴリーが追加されます</p>
-        <p>------------------------------------------------</p>
-        <p>＜ノートを追加する＞</p>
-        <p>① 作成したカテゴリーの右上にある<i class="fas fa-book-open"></i>を押すとノート一覧へ移動します</p>
-        <p>② 新規作成ボタンを押します</p>
-        <p>③ タイトルとノートを記入して登録するボタンを押します</p>
-        <p>④ ノートが追加されます</p>
-      </div>
-    </div>
 
-
-    <div class="card shadow-lg mx-auto" style="width:60%;">
-         <div class="card-title text-center" style="margin-top:10px;">
-          <a id="todo-list" style="font-size:20px;"></a><br>
-         </div>
-      <div class="card-body" style="margin-top:30px;">
-        <h4 class="about-heading" style="padding:10px; margin:20px;"><strong>まとめてポイlist</strong></h4>
-        <p><i class="star fas fa-star" style="color:yellow;"></i>まとめるためにデバッグ内容をメモしておきましょう！</p>
-        <p>① ヘッダーの「まとめてポイlist」ボタンを押してください</p>
-        <p>② 新規入力フォームからあとでまとめる項目を入れておきます</p>
-        <p>③ まとめ終わったらゴミ箱へ捨てましょう（ドラッグ＆ドロップ）</p>
-      </div>
-    </div>
-
-
-    <div class="card shadow-lg mx-auto" style="width:60%;">
-         <div class="card-title text-center" style="margin-top:10px;">
-           <a id="search" style="font-size:20px;"></a><br>
-         </div>
-      <div class="card-body" style="margin-top:30px;">
-        <h4 class="about-heading" style="padding:10px; margin:20px;"><strong>検索する</strong></h4>
-        <p><i class="star fas fa-star" style="color:yellow;"></i>作成したデバッグ帳を検索できます!</p>
-        <p>① ヘッダーの「検索するボタン」を押してください</p>
-        <p>② 検索フォームにキーワードを入れてください</p>
-        <p>③ 過去に作成したデータ内の「問題・原因」と「解決・詳細」、「ノートのタイトル」から検索ができます</p>
-      </div>
     </div>
