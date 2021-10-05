@@ -39,15 +39,15 @@ class LargeCategoriesController < ApplicationController
   end
 
   def search
-    @large_categories = LargeCategory.includes(:small_categories).where(user: current_user).references(:small_categories).search(params[:keyword]).page(params[:page])
+    @large_categories = LargeCategory.includes([:small_categories, :genre]).where(user: current_user).references(:small_categories).search(params[:keyword]).page(params[:page])
   end
 
-  before_action :check_guest, only: [:update, :destroy]
-  def check_guest
-    if @large_category.user.email == 'guest@example.com'
-      redirect_to user_large_categories_path(current_user), notice: 'ゲストユーザーは編集・削除ができません。'
-    end
-  end
+  # before_action :check_guest, only: [:update, :destroy]
+  # def check_guest
+  #   if @large_category.user.email == 'guest@example.com'
+  #     redirect_to user_large_categories_path(current_user), notice: 'ゲストユーザーは編集・削除ができません。'
+  #   end
+  # end
 
   private
 
