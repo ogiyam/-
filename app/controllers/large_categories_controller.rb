@@ -39,7 +39,7 @@ class LargeCategoriesController < ApplicationController
   end
 
   def search
-    @large_categories = LargeCategory.includes(:small_categories).where(user: current_user).references(:small_categories).search(params[:keyword]).page(params[:page])
+    @large_categories = LargeCategory.includes([:small_categories, :genre]).where(user: current_user).references(:small_categories).search(params[:keyword]).page(params[:page])
   end
 
   before_action :check_guest, only: [:update, :destroy]
