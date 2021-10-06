@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       collection do
         get :search
       end
-      resources :small_categories, only: [:index, :new, :show, :create, :destroy] do
+      resources :small_categories do
         resource :stars, only: [:create, :destroy]
       end
     end

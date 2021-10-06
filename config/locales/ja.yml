@@ -9,6 +9,9 @@ ja:
       large_category:
         problem: 「問題・原因」 欄
         solution: 「解決・詳細」 欄
+      small_category:
+        title: タイトル
+        note: ノート
       user:
         name: 名前
       genre:

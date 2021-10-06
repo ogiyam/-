@@ -2,9 +2,8 @@
     <%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@small_category.large_category_id), class: "link far fa-arrow-alt-circle-left" %>
 
     <h3> <%= @small_category.title %></h3>
-      <textarea id="summernote" name="small_category[note]">
-        <%= @small_category.note %>
-      </textarea>
+      <textarea id="summernote" name="small_category[note]"><%= @small_category.note %></textarea>
+      <%= link_to '編集', edit_small_category_path(@small_category), class: "btn btn-dark col-xs-12" %>
       <%= link_to '削除', small_category_path(@small_category), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger col-xs-12" %>
 </div>
 
@@ -34,6 +33,7 @@
                     ['color', ['color']],
                     ['para', ['ul', 'ol', 'paragraph']],
                     ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
                     ['view', ['fullscreen', 'codeview', 'help']]
                   ]
                 });
