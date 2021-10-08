@@ -1,17 +1,16 @@
 
   <div class="container" style="margin-top:-6px;">
 
-      <%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@large_category), class: "link far fa-arrow-alt-circle-left" %>
+      <%= link_to 'ノート一覧へ戻る', large_category_small_categories_path(@small_category.large_category_id), class: "link far fa-arrow-alt-circle-left" %>
 
-        <%= form_with model:[@large_category, @small_category], url: large_category_small_categories_path, method: :post, local:true do |f| %>
+        <%= form_with model:[@large_category, @small_category],  local:true do |f| %>
             <%= render 'layouts/errors', bg: @small_category %>
               <div class="text_field">
                  <%= f.label :title, "Title" %>
                  <%= f.text_field :title %><br>
-                 <%= f.hidden_field :large_category_id, :value => @large_category.id %>
               </div>
             <textarea id="summernote" name="small_category[note]"><%= @small_category.note %></textarea>
-            <%= f.submit '登録する', class: "btn btn-dark col-xs-12 text-right" %>
+            <%= f.submit '保存する', class: "btn btn-dark col-xs-12 text-right" %>
         <% end %>
   </div>
 
@@ -40,9 +39,8 @@
               ['color', ['color']],
               ['para', ['ul', 'ol', 'paragraph']],
               ['table', ['table']],
+              ['insert', ['link', 'picture', 'video']],
               ['view', ['fullscreen', 'codeview', 'help']]
             ]
           });
     </script>
-
-
