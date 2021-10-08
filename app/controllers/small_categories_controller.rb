@@ -25,14 +25,25 @@ class SmallCategoriesController < ApplicationController
     if @small_category.save
       redirect_to large_category_small_categories_path, notice: "ノートを追加しました"
     else
-      flash.now[:notice]="エラーが発生しました"
-      @small_categories = SmallCategory.where(large_category_id: @large_category.id)
-      render 'index'
+      render 'new'
     end
   end
 
   def show
     @small_category = SmallCategory.find(params[:id])
+  end
+
+  def edit
+    @small_category = SmallCategory.find(params[:id])
+  end
+
+  def update
+     @small_category = SmallCategory.find(params[:id])
+    if @small_category.update(small_category_params)
+      redirect_to large_category_small_categories_path(@small_category.large_category_id), notice: "ノートを保存しました"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -44,11 +55,11 @@ class SmallCategoriesController < ApplicationController
     end
   end
 
-  before_action :check_guest, only: :destroy
+  before_action :check_guest, only: [:update, :destroy]
   def check_guest
     @small_category = SmallCategory.find(params[:id])
     if @small_category.large_category.user.email == 'guest@example.com'
-      redirect_to large_category_small_categories_path(@small_category.large_category_id), notice: 'ゲストユーザーは削除ができません。'
+      redirect_to large_category_small_categories_path(@small_category.large_category_id), notice: 'ゲストユーザーは編集・削除ができません。'
     end
   end
 
